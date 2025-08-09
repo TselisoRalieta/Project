@@ -1,0 +1,92 @@
+<ion-content class="home-content">
+  <ion-grid class="top-header">
+    <ion-row class="ion-align-items-center ion-justify-content-between">
+      <ion-col size="auto" class="profile-pic">
+        <ion-avatar>
+          <img src="assets/images/image.png" alt="Profile Picture">
+        </ion-avatar>
+      </ion-col>
+
+      <ion-col size="auto" class="welcome-text">
+        <h2>Welcome {{ firstName }}</h2>
+      </ion-col>
+
+      <ion-col size="auto" class="top-icons">
+        <ion-buttons>
+          <ion-button [routerLink]="['/notifications']">
+            <ion-icon name="notifications-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <br>
+  <div class="welcome-subtext">
+    <p>Quick access to important features</p>
+  </div>
+
+  <br><br><br>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6">
+        <ion-card button class="quick-card" [routerLink]="['/search']">
+          <ion-icon name="location-outline" class="card-icon"></ion-icon>
+          <ion-label>Search Locations</ion-label>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-md="6">
+        <ion-card button class="quick-card" [routerLink]="['/guidelines']">
+          <ion-icon name="book-outline" class="card-icon"></ion-icon>
+          <ion-label>View Guidelines</ion-label>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12" size-md="6">
+        <ion-card button class="quick-card" [routerLink]="['/view-event']">
+          <ion-icon name="calendar-outline" class="card-icon"></ion-icon>
+          <ion-label>View Events</ion-label>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-md="6">
+        <ion-card button class="quick-card" [routerLink]="['/history']">
+          <ion-icon name="time-outline" class="card-icon"></ion-icon>
+          <ion-label>My History</ion-label>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12" size-md="6">
+        <ion-card button class="quick-card wide-card" [routerLink]="['/tips-resources']">
+          <ion-icon name="bulb-outline" class="card-icon"></ion-icon>
+          <ion-label>Tips & Resources</ion-label>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-footer class="tab-bar">
+    <ion-toolbar>
+      <ion-buttons slot="start" class="footer-buttons">
+        <ion-button>
+          <ion-icon name="home-outline"></ion-icon>
+          HOME
+        </ion-button>
+
+        <ion-button [routerLink]="['/reports']">
+          <ion-icon name="file-tray-full-outline"></ion-icon>
+          Report
+        </ion-button>
+
+        <ion-button [routerLink]="['/settings']">
+          <ion-icon name="settings-outline"></ion-icon>
+          Settings
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>
+  <br><br><br>
+</ion-content>

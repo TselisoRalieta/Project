@@ -1,0 +1,139 @@
+.profile-content {
+    --background: #f2f2f2;
+    position: relative;
+    padding-bottom: 80px; 
+  }
+  
+  .header-bg {
+    height: 180px;
+    background-color: #5e5a55;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+  }
+  
+  .profile-card {
+    background: white;
+    position: absolute;
+    top: 100px;
+    left: 20px;
+    right: 20px;
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .avatar-wrapper {
+    position: relative;
+  }
+  
+  .profile-avatar {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .camera-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 20px;
+    background: white;
+    border-radius: 50%;
+    padding: 4px;
+    color: #5e5a55;
+  }
+  
+  .username {
+    margin-top: 12px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    font-size: 18px;
+  }
+  
+  .profile-list {
+    --background: transparent;
+    background: transparent;
+    width: 100%;
+    padding: 0;
+    margin-top: 10px;
+  }
+  
+  .profile-list ion-item {
+    --background: white;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    --inner-border-width: 0;
+    --min-height: 50px;
+    padding: 8px 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  .profile-list ion-icon {
+    color: #5e5a55;
+    font-size: 20px;
+  }
+  
+  .profile-list ion-label {
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .logout-button {
+    margin-top: 20px;
+    --background: #5e5a55;
+    color: white;
+    border-radius: 12px;
+  }
+  
+  .tab-bar {
+    border-top: 1px solid #ccc;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  .tab-bar ion-toolbar {
+    --background: #3e3e3e;
+  }
+  
+  .tab-bar ion-button {
+    flex-direction: column;
+    color: #ffff;
+    font-size: 12px;
+  }
+  
+  .tab-bar ion-icon {
+    font-size: 20px;
+  }
+  
+  .delete-item {
+    --background: white;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    --inner-border-width: 0;
+    --min-height: 50px;
+    padding: 8px 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  .delete-item ion-icon,
+  .delete-item ion-label {
+    color: #d9534f; 
+    font-weight: 500;
+  }
+  
+  .footer-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .tab-bar ion-button {
+    font-size: 14px; 
+    padding: 0; 
+  }
+  
+  .tab-bar ion-icon {
+    font-size: 24px; 
+  }
+  

@@ -1,0 +1,50 @@
+<ion-content class="profile-content">
+
+  <div class="header-bg"></div>
+
+  <div class="profile-card">
+    <div class="avatar-wrapper">
+      <ion-avatar class="profile-avatar">
+        <img src="assets/images/images.png" alt="Profile Image" />
+      </ion-avatar>
+      <ion-icon name="camera" class="camera-icon"></ion-icon>
+    </div>
+
+    <h2 class="username">Sam</h2>
+
+    <ion-list class="profile-list" lines="none">
+      <ion-item button [routerLink]="['/profile-details']">
+        <ion-icon slot="start" name="person-outline"></ion-icon>
+        <ion-label>Account Detail</ion-label>
+      </ion-item>
+      <ion-item button [routerLink]="['/contact-us']">
+        <ion-icon slot="start" name="mail-outline"></ion-icon>
+        <ion-label>Contact Us</ion-label>
+      </ion-item>
+    
+    </ion-list> 
+    
+
+    <ion-button expand="block" class="logout-button" [routerLink]="['/home']">Logout</ion-button>
+  </div>
+</ion-content>
+
+<ion-footer class="tab-bar">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="footer-buttons">
+      <ion-button [routerLink]="['/dashbourd']">
+        <ion-icon name="home-outline"></ion-icon>
+        HOME
+      </ion-button>
+
+      <ion-button [routerLink]="['/reports']">
+        <ion-icon name="file-tray-full-outline"></ion-icon>
+        Report
+      </ion-button>
+
+      <ion-button>
+        <ion-icon name="settings-outline"></ion-icon>
+        Settings
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>

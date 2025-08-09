@@ -1,0 +1,70 @@
+<ion-content class="profile-detail-content">
+  <div class="top-bar">
+    <h1>Profile</h1>
+  </div>
+  <br><br>
+
+  <div class="profile-card-detail">
+    <ion-avatar class="detail-avatar">
+      <img [src]="profileImageUrl || 'assets/images/images.png'" alt="Profile Image" />
+    </ion-avatar>
+
+    <input type="file" (change)="uploadProfileImage($event)" />
+
+    <h2 class="name">
+      {{ userName }} {{ userSurname }}
+      <ion-icon name="checkmark-circle" class="verified-icon"></ion-icon>
+    </h2>
+
+    <div class="location">
+      <ion-icon name="location-outline"></ion-icon>
+      <span>{{ userLocation }}</span>
+      <img src="assets/flag.png" class="flag-icon" />
+    </div>
+
+    <ion-list lines="full">
+      <ion-item>
+        <ion-label>
+          <p>Full Name</p>
+          <h3>{{ userName }} {{ userSurname }}</h3>
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          <p>Phone</p>
+          <h3>{{ userPhone }}</h3>
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          <p>Email</p>
+          <h3>{{ userEmail }}</h3>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+  </div>
+
+  <ion-footer class="tab-bar">
+    <ion-toolbar>
+      <ion-buttons slot="start" class="footer-buttons">
+        <ion-button>
+          <ion-icon name="home-outline"></ion-icon>
+          HOME
+        </ion-button>
+
+        <ion-button [routerLink]="['/reports']">
+          <ion-icon name="file-tray-full-outline"></ion-icon>
+          Report
+        </ion-button>
+
+        <ion-button [routerLink]="['/settings']">
+          <ion-icon name="settings-outline"></ion-icon>
+          Settings
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>
+</ion-content>

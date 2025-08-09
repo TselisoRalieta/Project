@@ -1,0 +1,122 @@
+.auth-content {
+    --background: transparent;
+    position: relative;
+    background: url('/assets/img/mountain-peak.jpg') no-repeat center center/cover;
+    backdrop-filter: blur(2px);
+    min-height: 100vh;
+    color: white;
+  }
+  
+  .auth-content::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+  }
+  
+  .signup-form, .login-form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 20px;
+    z-index: 1;
+  }
+  
+  .name-fields {
+    display: flex;
+    gap: 12px;
+  }
+  
+  ion-input {
+    --color: white;
+    --highlight-color-focused: #3e3e3e;
+    --placeholder-color: #ccc;
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+  }
+  
+  ion-input::part(native) {
+    color: white;
+  }
+  
+  ion-input::part(placeholder) {
+    color: #bbb;
+  }
+  
+  ion-input ion-icon {
+    color: white;
+    font-size: 20px;
+  }
+  
+  .action-button {
+    margin-top: 24px;
+    --background: #3e3e3e;
+    --color: white;
+    font-weight: 600;
+    border-radius: 10px;
+    z-index: 1;
+  }
+  
+  .top-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 8px;
+    margin-bottom: 12px;
+    color: white;
+    z-index: 1;
+  }
+  
+  ion-back-button {
+    color: white;
+  }
+  
+  .page-title {
+    flex: 1;
+    text-align: center;
+    font-size: 22px;
+    color: #fff;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  ion-button {
+    --color: white;
+    --border-radius: 15px;
+  }
+  
+  ion-item {
+    --background: transparent;
+    --inner-border-width: 0;
+  }
+  
+  ion-item[lines="none"] {
+    --background: transparent;
+  }
+  
+  ion-checkbox {
+    color: #3e3e3e;
+  }
+  
+  ion-label {
+    color: white;
+  }
+  .top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 8px;
+    margin-bottom: 12px;
+    color: white;
+    z-index: 1;
+  }
+  
+  .page-icon {
+    font-size: 28px;
+    color: white;
+  }
+  
