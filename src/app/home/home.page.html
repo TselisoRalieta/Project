@@ -1,8 +1,10 @@
 <ion-content fullscreen class="onboarding">
   <!-- Slide 1 Content -->
   <section *ngIf="currentSlide === 0" class="slide-content first-slide">
-    <div class="background first-bg"></div>
-    <div class="top-right" (click)="skipOnboarding()"><ion-text color="light" [routerLink]="['/registration']">Skip</ion-text></div>
+    <div class="background" style="background-image: url('/assets/img/1.png');"></div>
+    <div class="top-right" (click)="skipOnboarding()">
+      <ion-text color="light" [routerLink]="['/registration']">Skip</ion-text>
+    </div>
     <div class="content">
       <h2>
         <strong>Life is brief, but the universe is <span class="highlight">vast</span>.</strong>
@@ -21,8 +23,10 @@
 
   <!-- Slide 2 Content -->
   <section *ngIf="currentSlide === 1" class="slide-content second-slide">
-    <div class="background second-bg"></div>
-    <div class="top-right" (click)="skipOnboarding()"><ion-text color="light" [routerLink]="['/registration']">Skip</ion-text></div>
+    <div class="background" style="background-image: url('/assets/img/2.png');"></div>
+    <div class="top-right" (click)="skipOnboarding()">
+      <ion-text color="light" [routerLink]="['/registration']">Skip</ion-text>
+    </div>
     <div class="content">
       <h2>
         <strong>The world is waiting for you, go <span class="highlight">discover it.</span></strong>
@@ -42,7 +46,7 @@
 
   <!-- Slide 3 Content -->
   <section *ngIf="currentSlide === 2" class="slide-content third-slide">
-    <div class="background third-bg"></div>
+    <div class="background" style="background-image: url('/assets/img/3.png');"></div>
     <div class="content">
       <h2>
         <strong>People don’t take trips, trips take <span class="highlight">people</span></strong>
@@ -56,7 +60,7 @@
         <span class="dot"></span>
         <span class="dot active"></span>
       </div>
-      <ion-button expand="block" class="get-started"  [routerLink]="['/registration']">Get Started</ion-button>
+      <ion-button expand="block" class="get-started" [routerLink]="['/registration']">Get Started</ion-button>
     </div>
   </section>
 </ion-content>
