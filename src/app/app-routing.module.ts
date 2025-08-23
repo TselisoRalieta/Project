@@ -31,6 +31,14 @@ const routes: Routes = [
     path: 'profile-details',
     loadChildren: () => import('./profile-details/profile-details.module').then( m => m.ProfileDetailsPageModule)
   },
+  {
+    path: 'admin-menu',
+    loadChildren: () => import('./admin-menu/admin-menu.module').then( m => m.AdminMenuPageModule)
+  },
+  {
+    path: 'admin-account',
+    loadChildren: () => import('./admin-account/admin-account.module').then( m => m.AdminAccountPageModule)
+  },
 ];
 
 @NgModule({

@@ -1,0 +1,64 @@
+<ion-content class="profile-detail-content">
+  <div class="top-bar">
+    <h1>Profile</h1>
+  </div>
+  <br><br>
+
+  <div class="profile-card-detail">
+    <ion-avatar class="detail-avatar">
+      <img [src]="profileImageUrl" alt="Profile Image" />
+    </ion-avatar>
+
+    <h2 class="name">
+      {{ fullName }}
+      <ion-icon name="checkmark-circle" class="verified-icon"></ion-icon>
+    </h2>
+
+    <div class="location">
+      <ion-icon name="location-outline"></ion-icon>
+      <span>{{ location }}</span>
+      <img src="assets/flag.png" class="flag-icon" />
+    </div>
+
+    <ion-list lines="full">
+      <ion-item>
+        <ion-label>
+          <p>Full Name</p>
+          <h3>{{ userName }} {{ userSurname }}</h3>
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          <p>Phone Number</p>
+          <h3>{{ phone }}</h3>
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          <p>Email</p>
+          <h3>{{ email }}</h3>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-button expand="block" class="logout-button" [routerLink]="['/home']">Logout</ion-button>
+  </div>
+
+  <ion-footer class="tab-bar">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button [routerLink]="['/admin-menu']">
+          <ion-icon name="home-outline"></ion-icon> HOME
+        </ion-button>
+        <ion-button [routerLink]="['/report-detail']">
+          <ion-icon name="file-tray-full-outline"></ion-icon> Report
+        </ion-button>
+        <ion-button>
+          <ion-icon name="settings-outline"></ion-icon> Settings
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>
+</ion-content>
