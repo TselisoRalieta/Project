@@ -1,29 +1,26 @@
 <ion-header translucent="true"></ion-header>
 
 <ion-content class="auth-content ion-padding">
-  <div class="top-bar">
-    <!-- Left: Page icon (Log In or Sign Up) -->
+  <!-- Centered Icon -->
+  <div class="icon-container">
     <ion-icon 
       class="page-icon"
       [name]="isLogin ? 'person-circle-outline' : 'person-add-outline'">
     </ion-icon>
-  
-    <!-- Right: Toggle button -->
-    <ion-buttons slot="end">
-      <ion-button fill="clear" (click)="toggleForm()">
-        {{ isLogin ? 'Sign Up' : 'Log In' }}
-      </ion-button>
-    </ion-buttons>
-  </div>
-  
 
-  <br><br><br>
+    <!-- Welcome message for Sign In -->
+    <div *ngIf="isLogin" class="welcome-message">
+      <h2>Welcome Back!</h2>
+      <p>Please log in to continue</p>
+    </div>
+  </div>
+
+  <br><br>
 
   <!-- Login Form -->
   <form *ngIf="isLogin" class="login-form" (ngSubmit)="login()" #loginForm="ngForm">
     <ion-input 
-      label="Email" 
-      labelPlacement="floating" 
+      placeholder="Email" 
       fill="outline"
       type="email"
       [(ngModel)]="email"
@@ -34,10 +31,9 @@
 
     <ion-item lines="none">
       <ion-input
-        label="Password"
-        labelPlacement="floating"
-        [type]="showPassword ? 'text' : 'password'"
+        placeholder="Password"
         fill="outline"
+        [type]="showPassword ? 'text' : 'password'"
         [(ngModel)]="password"
         name="password"
         required>
@@ -54,14 +50,18 @@
     <ion-button expand="block" class="action-button" shape="round" type="submit">
       Log In
     </ion-button>
+
+    <!-- Bottom link -->
+    <div class="auth-footer">
+      <p>Don't have an account? <a (click)="toggleForm()">Register Now</a></p>
+    </div>
   </form>
 
   <!-- Registration Form -->
   <form *ngIf="!isLogin" class="signup-form" (ngSubmit)="register()" #signupForm="ngForm">
     <div class="name-fields">
       <ion-input
-        label="First Name"
-        labelPlacement="floating"
+        placeholder="First Name"
         fill="outline"
         [(ngModel)]="firstName"
         name="firstName"
@@ -70,8 +70,7 @@
       </ion-input>
 
       <ion-input
-        label="Last Name"
-        labelPlacement="floating"
+        placeholder="Last Name"
         fill="outline"
         [(ngModel)]="lastName"
         name="lastName"
@@ -81,8 +80,7 @@
     </div>
 
     <ion-input
-      label="Email"
-      labelPlacement="floating"
+      placeholder="Email"
       fill="outline"
       type="email"
       [(ngModel)]="email"
@@ -92,8 +90,7 @@
     </ion-input>
 
     <ion-input
-      label="Contacts"
-      labelPlacement="floating"
+      placeholder="Contacts"
       fill="outline"
       type="text"
       [(ngModel)]="contacts"
@@ -102,8 +99,7 @@
     </ion-input>
 
     <ion-input
-      label="Location"
-      labelPlacement="floating"
+      placeholder="Location"
       fill="outline"
       type="text"
       [(ngModel)]="location"
@@ -113,8 +109,7 @@
 
     <ion-item lines="none">
       <ion-input
-        label="Password"
-        labelPlacement="floating"
+        placeholder="Password"
         fill="outline"
         [type]="showPassword ? 'text' : 'password'"
         [(ngModel)]="password"
@@ -136,8 +131,13 @@
       </ion-label>
     </ion-item>
 
-    <ion-button expand="block" class="action-button" shape="round" type="submit" [routerLink]="['/dashbourd']" >
+    <ion-button expand="block" class="action-button" shape="round" type="submit" [routerLink]="['/dashbourd']">
       Sign Up
     </ion-button>
+
+    <!-- Bottom link -->
+    <div class="auth-footer">
+      <p>Already have an account? <a (click)="toggleForm()">Login Now</a></p>
+    </div>
   </form>
 </ion-content>
