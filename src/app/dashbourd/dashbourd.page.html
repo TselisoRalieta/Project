@@ -3,7 +3,7 @@
     <ion-row class="ion-align-items-center ion-justify-content-between">
       <ion-col size="auto" class="profile-pic">
         <ion-avatar>
-          <img src="assets/images/image.png" alt="Profile Picture">
+          <ion-icon name="walk"></ion-icon>
         </ion-avatar>
       </ion-col>
 
@@ -36,7 +36,7 @@
         </ion-card>
       </ion-col>
       <ion-col size="12" size-md="6">
-        <ion-card button class="quick-card" [routerLink]="['/guidelines']">
+        <ion-card button class="quick-card" [routerLink]="['/updates']">
           <ion-icon name="book-outline" class="card-icon"></ion-icon>
           <ion-label>Updates</ion-label>
         </ion-card>
@@ -76,9 +76,9 @@
           HOME
         </ion-button>
 
-        <ion-button [routerLink]="['/reports']">
-          <ion-icon name="file-tray-full-outline"></ion-icon>
-          Report
+        <ion-button [routerLink]="['/about-us']">
+          <ion-icon name="people-outline"></ion-icon>
+          About Us
         </ion-button>
 
         <ion-button [routerLink]="['/settings']">

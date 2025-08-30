@@ -1,103 +1,114 @@
 .home-content {
-    --background: #f2f2f2;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    padding-bottom: 80px; 
-  }
-  
-  .top-header {
-    width: 100%;
-    padding: 10px 15px;
-  }
-  
-  .top-header .ion-row {
-    display: flex;
-    align-items: center;
-  }
-  
-  .profile-pic ion-avatar {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .welcome-text h2 {
-    font-size: 18px;
-    font-weight: 600;
-    color: #3e3e3e;
-    margin-left: 10px;
-    margin: 0;
-  }
-  
-  .top-icons {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-right: 10px;
-  }
-  
-  .top-icons ion-button {
-    --padding-start: 0;
-    --padding-end: 0;
-    font-size: 20px;
-    color: #3e3e3e;
-  }
-  
-  .welcome-subtext {
-    padding: 0 15px 10px;
-  }
-  
-  .welcome-subtext p {
-    font-size: 14px;
-    color: #888;
-    margin: 0;
-  }
-  
-  .quick-card {
-    text-align: center;
-    padding: 20px 10px;
-    border-radius: 20px;
-    background: white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
-  }
-  
-  .quick-card ion-label {
-    display: block;
-    margin-top: 10px;
-    font-size: 14px;
-  }
-  
-  .card-icon {
-    font-size: 28px;
-    color: #3e3e3e;
-  }
-  
-  .wide-card {
-    width: calc(95%);
-    margin-left: 10px;
-  }
-  
-  .tab-bar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 10;
-    border-top: 1px solid #ccc;
-    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
-  }
-  
-  .footer-buttons {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }
-  
-  .tab-bar ion-button {
-    font-size: 14px;
-    padding: 0; 
-  }
-  
-  .tab-bar ion-icon {
-    font-size: 24px; 
-  }
+  --background: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-bottom: 80px; 
+}
+
+.top-header {
+  width: 100%;
+  padding: 10px 15px;
+}
+
+.top-header .ion-row {
+  display: flex;
+  align-items: center;
+}
+
+.profile-pic ion-avatar {
+  width: 40px;
+  height: 40px;
+}
+
+.welcome-text h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #3e3e3e;
+  margin-left: 10px;
+  margin: 0;
+}
+
+.top-icons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 10px;
+}
+
+.top-icons ion-button {
+  --padding-start: 0;
+  --padding-end: 0;
+  font-size: 20px;
+  color: #3e3e3e;
+}
+
+.welcome-subtext {
+  padding: 0 15px 10px;
+}
+
+.welcome-subtext p {
+  font-size: 14px;
+  color: #888;
+  margin: 0;
+}
+
+.quick-card {
+  text-align: center;
+  padding: 20px 10px;
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.quick-card ion-label {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.card-icon {
+  font-size: 28px;
+  color: #3e3e3e;
+}
+
+.wide-card {
+  width: calc(95%);
+  margin-left: 10px;
+}
+
+.tab-bar {
+  border-top: 1px solid #ccc;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.tab-bar ion-toolbar {
+  --background: #3e3e3e;
+}
+
+.tab-bar ion-button {
+  flex-direction: column;
+  color: #fff;
+  font-size: 12px;
+  padding: 0;
+}
+
+.tab-bar ion-icon {
+  font-size: 24px;
+}
+
+.profile-pic ion-avatar {
+  width: 40px;
+  height: 40px;
+}
+
+.footer-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}

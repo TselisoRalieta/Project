@@ -1,0 +1,47 @@
+
+
+<ion-content>
+  <!-- News List -->
+  <ion-list>
+    <ng-container *ngFor="let news of newsList; let i = index">
+      <ion-item (click)="toggleDetail(i)">
+        <ion-thumbnail slot="start">
+          <img [src]="news.imageUrl" />
+        </ion-thumbnail>
+        <ion-label>
+          <h2>{{ news.title }}</h2>
+          <p>{{ news.category }}</p>
+          <p>{{ news.snippet }}</p>
+        </ion-label>
+      </ion-item>
+
+      <!-- Expandable News Detail -->
+      <ion-item *ngIf="isExpanded(i)">
+        <ion-label>
+          <p>{{ news.fullText }}</p>
+        </ion-label>
+      </ion-item>
+    </ng-container>
+  </ion-list>
+
+  <ion-footer class="tab-bar">
+    <ion-toolbar>
+      <ion-buttons slot="start" class="footer-buttons" [routerLink]="['/dashbourd']">
+        <ion-button>
+          <ion-icon name="home-outline"></ion-icon>
+          HOME
+        </ion-button>
+
+        <ion-button [routerLink]="['/about-us']">
+          <ion-icon name="people-outline"></ion-icon>
+          About Us
+        </ion-button>
+
+        <ion-button [routerLink]="['/settings']">
+          <ion-icon name="settings-outline"></ion-icon>
+          Settings
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>
+</ion-content>

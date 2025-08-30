@@ -39,6 +39,18 @@ const routes: Routes = [
     path: 'admin-account',
     loadChildren: () => import('./admin-account/admin-account.module').then( m => m.AdminAccountPageModule)
   },
+  {
+    path: 'contact-center',
+    loadChildren: () => import('./contact-center/contact-center.module').then( m => m.ContactCenterPageModule)
+  },
+  {
+    path: 'about-us',
+    loadChildren: () => import('./about-us/about-us.module').then( m => m.AboutUsPageModule)
+  },
+  {
+    path: 'updates',
+    loadChildren: () => import('./updates/updates.module').then( m => m.UpdatesPageModule)
+  },
 ];
 
 @NgModule({
