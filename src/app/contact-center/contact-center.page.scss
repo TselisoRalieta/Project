@@ -1,0 +1,82 @@
+.contact-content {
+  --background: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 10px;
+}
+
+.contact-card {
+  text-align: center;
+  padding: 20px 10px;
+  border-radius: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  background: white;
+  margin-bottom: 15px;
+}
+
+.icon-container {
+  font-size: 28px;
+  color: #3e3e3e;
+  cursor: pointer;
+}
+
+.card-icon {
+  font-size: 28px;
+  color: #3e3e3e;
+}
+
+.title {
+  font-size: 18px;
+  margin: 10px 0;
+  color: #333;
+  font-weight: 600;
+}
+
+.contact-block h3 {
+  font-size: 16px;
+  margin: 5px 0;
+  color: #333;
+}
+
+.contact-block p {
+  font-size: 14px;
+  color: #888;
+  margin: 2px 0;
+  cursor: pointer;
+}
+  .tab-bar {
+    border-top: 1px solid #ccc;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+  }
+  
+  .tab-bar ion-toolbar {
+    --background: #3e3e3e;
+  }
+  
+  .tab-bar ion-button {
+    flex-direction: column;
+    color: #fff;
+    font-size: 12px;
+    padding: 0;
+  }
+  
+  .tab-bar ion-icon {
+    font-size: 24px;
+  }
+  
+  .profile-pic ion-avatar {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .footer-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }

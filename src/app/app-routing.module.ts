@@ -12,10 +12,6 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'registration',
-    loadChildren: () => import('./registration/registration.module').then( m => m.RegistrationPageModule)
-  },
-  {
     path: 'dashbourd',
     loadChildren: () => import('./dashbourd/dashbourd.module').then( m => m.DashbourdPageModule)
   },
@@ -51,6 +47,40 @@ const routes: Routes = [
     path: 'updates',
     loadChildren: () => import('./updates/updates.module').then( m => m.UpdatesPageModule)
   },
+  {
+    path: 'road-safety',
+    loadChildren: () => import('./road-safety/road-safety.module').then( m => m.RoadSafetyPageModule)
+  },
+  {
+    path: 'notifications',
+    loadChildren: () => import('./notifications/notifications.module').then( m => m.NotificationsPageModule)
+  },
+  {
+    path: 'location',
+    loadChildren: () => import('./location/location.module').then( m => m.LocationPageModule)
+  },
+  {
+    path: 'weather',
+    loadChildren: () => import('./weather/weather.module').then( m => m.WeatherPageModule)
+  },
+  {
+    path: 'road-status',
+    loadChildren: () => import('./road-status/road-status.module').then( m => m.RoadStatusPageModule)
+  },
+  {
+    path: 'report',
+    loadChildren: () => import('./report/report.module').then( m => m.ReportPageModule)
+  },
+  {
+    path: 'signup',
+    loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
+  },
+  {
+    path: 'create-account',
+    loadChildren: () => import('./create-account/create-account.module').then( m => m.CreateAccountPageModule)
+  },
+
+
 ];
 
 @NgModule({

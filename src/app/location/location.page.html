@@ -1,0 +1,68 @@
+<ion-content style="--background: #ffffff;">
+  <!-- Map container -->
+  <div id="map" style="width: 100%; height: 70vh;"></div>
+
+  <!-- Display selected addresses -->
+   <!-- Display selected addresses -->
+<ion-grid class="info-grid">
+  <ion-row>
+    <ion-col size="12">
+      <ion-item style="--background: #ffffff; --color: #3e3e3e; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 10px; --border-style: none;">
+        <ion-icon name="navigate-outline" slot="start" style="color: #3e3e3e;"></ion-icon>
+        <ion-label style="color: #3e3e3e;">
+          Departure: {{ departureAddress || 'Not selected' }}
+        </ion-label>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col size="12">
+      <ion-item style="--background: #ffffff; --color: #3e3e3e; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 10px; --border-style: none;">
+        <ion-icon name="flag-outline" slot="start" style="color: #3e3e3e;"></ion-icon>
+        <ion-label style="color: #3e3e3e;">
+          Arrival: {{ arrivalAddress || 'Not selected' }}
+        </ion-label>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<!-- Centered, smaller, rounded button -->
+<div style="display: flex; justify-content: center; margin-top: 20px;">
+  <ion-button 
+    style="
+      --background: #3e3e3e; 
+      --color: #ffffff; 
+      --border-radius: 20px; 
+      height: 40px; 
+      width: 60%;
+      font-size: 14px;"
+    (click)="saveCoordinates()">
+    Save Locations
+  </ion-button>
+</div>
+
+<br><br><br><br>
+  
+  <ion-footer class="tab-bar">
+    <ion-toolbar>
+      <ion-buttons slot="start" class="footer-buttons">
+        <ion-button>
+          <ion-icon name="home-outline"></ion-icon>
+          HOME
+        </ion-button>
+
+        <ion-button [routerLink]="['/about-us']">
+          <ion-icon name="people-outline"></ion-icon>
+          About Us
+        </ion-button>
+
+        <ion-button [routerLink]="['/settings']">
+          <ion-icon name="settings-outline"></ion-icon>
+          Settings
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>
+</ion-content>

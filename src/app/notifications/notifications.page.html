@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="header-container">
+      <!-- Left: Profile Avatar -->
+      <ion-avatar class="profile-pic">
+        <ion-icon name="walk"></ion-icon>
+      </ion-avatar>
+
+      <!-- Center: Title -->
+      <h2 class="header-title">Notifications</h2>
+
+      <!-- Right: Notification Icon -->
+      <ion-button class="notification-btn" fill="clear" [routerLink]="['/notifications']">
+        <ion-icon name="notifications-outline"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="notifications-content">
+  <!-- If there are notifications -->
+  <ng-container *ngIf="notifications.length > 0; else noNotifications">
+    <ion-list>
+      <ion-item *ngFor="let notif of notifications">
+        <ion-avatar slot="start">
+          <ion-icon [name]="notif.icon" size="large"></ion-icon>
+        </ion-avatar>
+        <ion-label>
+          <h2>{{ notif.title }}</h2>
+          <p>{{ notif.message }}</p>
+          <small>{{ notif.time }}</small>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ng-container>
+
+  <!-- Empty state -->
+  <ng-template #noNotifications>
+    <div class="empty-state">
+      <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+      <h2>No Notifications</h2>
+      <p>We’ll let you know when there will be something to update you.</p>
+    </div>
+  </ng-template>
+
+  <!-- Footer Tabs -->
+  <ion-footer class="tab-bar">
+    <ion-toolbar>
+      <ion-buttons slot="start" class="footer-buttons">
+        <ion-button [routerLink]="['/home']">
+          <ion-icon name="home-outline"></ion-icon>
+          HOME
+        </ion-button>
+
+        <ion-button [routerLink]="['/about-us']">
+          <ion-icon name="people-outline"></ion-icon>
+          About Us
+        </ion-button>
+
+        <ion-button [routerLink]="['/settings']">
+          <ion-icon name="settings-outline"></ion-icon>
+          Settings
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>
+</ion-content>

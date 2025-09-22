@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar style="--background: #ffffff;">
+    <!-- Left: Avatar with walk icon -->
+    <ion-buttons slot="start">
+      <ion-avatar>
+        <ion-icon name="walk" size="large" style="color: #3e3e3e;"></ion-icon>
+      </ion-avatar>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content style="--background: #ffffff; color: #3e3e3e;"s>
+  <!-- Pull to refresh -->
+  <ion-refresher slot="fixed" (ionRefresh)="ngOnInit(); $event.target.complete()">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <!-- Hazards list -->
+  <ion-grid *ngIf="!loading && hazards.length > 0" class="hazard-grid">
+  <ion-row>
+    <ion-col 
+      size="12" 
+      size-md="6" 
+      size-lg="4" 
+      *ngFor="let hazard of hazards"
+    >
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>
+            {{ hazard.type | titlecase }} ({{ hazard.severity }})
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>{{ hazard.description }}</p>
+          <p><b>Source:</b> {{ hazard.source }}</p>
+          <p><b>Time:</b> {{ hazard.timestamp | date:'short' }}</p>
+          <p><b>Location:</b> {{ hazard.location.district }}, {{ hazard.location.village }}</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<!-- Empty state -->
+<ion-item *ngIf="!loading && hazards.length === 0">
+  <ion-label>No hazards reported</ion-label>
+</ion-item>
+
+
+  <!-- Loading spinner -->
+  <ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
+  <br><br><br><br>
+  <ion-footer class="tab-bar">
+    <ion-toolbar>
+      <ion-buttons slot="start" class="footer-buttons">
+        <ion-button>
+          <ion-icon name="home-outline"></ion-icon>
+          HOME
+        </ion-button>
+
+        <ion-button [routerLink]="['/report']">
+          <ion-icon name="warning-outline"></ion-icon>
+          REPORT
+        </ion-button>
+
+        <ion-button [routerLink]="['/settings']">
+          <ion-icon name="settings-outline"></ion-icon>
+          Settings
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>
+</ion-content>
+  

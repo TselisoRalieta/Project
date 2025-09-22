@@ -1,33 +1,54 @@
+<ion-content class="home-content">
+  <!-- Top Header -->
+  <ion-grid class="top-header">
+    <ion-row class="ion-align-items-center ion-justify-content-between">
+      <ion-col size="auto" class="welcome-text">
+      </ion-col>
 
+      <ion-col size="auto" class="top-icons">
+        <ion-buttons>
+          <ion-button [routerLink]="['/notifications']">
+            <ion-icon name="notifications-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-<ion-content>
-  <!-- News List -->
-  <ion-list>
-    <ng-container *ngFor="let news of newsList; let i = index">
-      <ion-item (click)="toggleDetail(i)">
-        <ion-thumbnail slot="start">
-          <img [src]="news.imageUrl" />
-        </ion-thumbnail>
-        <ion-label>
-          <h2>{{ news.title }}</h2>
-          <p>{{ news.category }}</p>
-          <p>{{ news.snippet }}</p>
-        </ion-label>
-      </ion-item>
+  <br>
+  <div class="welcome-subtext">
+    <p>Click on a news card to see full details</p>
+  </div>
+  <br>
 
-      <!-- Expandable News Detail -->
-      <ion-item *ngIf="isExpanded(i)">
-        <ion-label>
-          <p>{{ news.fullText }}</p>
-        </ion-label>
-      </ion-item>
-    </ng-container>
-  </ion-list>
+  <!-- News Grid -->
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6" *ngFor="let news of newsList; let i = index">
+        <ion-card class="news-card" (click)="toggleDetail(i)">
+          <div class="card-content">
+            <div class="card-image">
+              <img [src]="news.imageUrl" />
+            </div>
+            <div class="card-text">
+              <h2>{{ news.title }}</h2>
+              <p>{{ news.category }}</p>
+              <p>{{ news.snippet }}</p>
+              <p *ngIf="isExpanded(i)" class="full-text">
+                {{ news.fullText }}
+              </p>
+            </div>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
+  <!-- Footer / Tab Bar -->
   <ion-footer class="tab-bar">
     <ion-toolbar>
-      <ion-buttons slot="start" class="footer-buttons" [routerLink]="['/dashbourd']">
-        <ion-button>
+      <ion-buttons slot="start" class="footer-buttons">
+        <ion-button [routerLink]="['/dashboard']">
           <ion-icon name="home-outline"></ion-icon>
           HOME
         </ion-button>

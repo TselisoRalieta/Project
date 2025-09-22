@@ -4,7 +4,24 @@
     flex-direction: column;
     height: 100%;
     padding: 0;
+
+    .ion-button{
+      
+    .top-icons ion-button {
+  --padding-start: 0;
+  --padding-end: 0;
+  font-size: 22px;
+  color: #3e3e3e; /* dark gray */
+}
+
+.top-icons ion-icon {
+  font-size: 26px;   /* slightly bigger bell */
+  color: #3e3e3e;    /* matches theme text color */
+}
+  
+    }
   }
+
   
   .top-header {
     width: 100%;

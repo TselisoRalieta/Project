@@ -3,7 +3,7 @@
     <ion-row class="ion-align-items-center ion-justify-content-between">
       <ion-col size="auto" class="profile-pic">
         <ion-avatar>
-          <ion-icon name="walk"></ion-icon>
+          <ion-icon name="walk" size="large" style="color: #3e3e3e;"></ion-icon>
         </ion-avatar>
       </ion-col>
 
@@ -29,29 +29,40 @@
   <br><br><br>
   <ion-grid>
     <ion-row>
-      <ion-col size="12" size-md="6">
-        <ion-card button class="quick-card" [routerLink]="['/search']">
+      <ion-col size="6" size-md="6">
+        <ion-card button class="quick-card" [routerLink]="['/location']">
           <ion-icon name="location-outline" class="card-icon"></ion-icon>
           <ion-label>Start Journey</ion-label>
         </ion-card>
       </ion-col>
-      <ion-col size="12" size-md="6">
+      <ion-col size="6" size-md="6">
         <ion-card button class="quick-card" [routerLink]="['/updates']">
           <ion-icon name="book-outline" class="card-icon"></ion-icon>
           <ion-label>Updates</ion-label>
         </ion-card>
       </ion-col>
+
+      <ion-col size="12" size-md="6">
+  <ion-card button class="quick-card" [routerLink]="['/road-status']">
+    <ion-icon name="car-outline" class="carupdated-icon" size="large" style="color: #3e3e3e;"></ion-icon>
+    <ion-label>Road Status</ion-label>
+  </ion-card>
+</ion-col>
+
     </ion-row>
 
     <ion-row>
-      <ion-col size="12" size-md="6">
-        <ion-card button class="quick-card" [routerLink]="['/view-event']">
-          <ion-icon name="calendar-outline" class="card-icon"></ion-icon>
-          <ion-label>Road Events</ion-label>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" size-md="6">
-        <ion-card button class="quick-card" [routerLink]="['/history']">
+
+     <ion-col size="6" size-md="6">
+  <ion-card button class="quick-card" [routerLink]="['/weather']">
+    <ion-icon name="rainy-outline" size="large" style="color: #3e3e3e;"></ion-icon>
+    <ion-label>Weather</ion-label>
+  </ion-card>
+</ion-col>
+
+
+      <ion-col size="6" size-md="6">
+        <ion-card button class="quick-card" [routerLink]="['/contact-center']">
           <ion-icon name="call-outline" class="card-icon big-icon"></ion-icon>
           <ion-label>Call For Help</ion-label>
         </ion-card>
@@ -60,7 +71,7 @@
 
     <ion-row>
       <ion-col size="12" size-md="6">
-        <ion-card button class="quick-card wide-card" [routerLink]="['/tips-resources']">
+        <ion-card button class="quick-card wide-card" [routerLink]="['/road-safety']">
           <ion-icon name="bulb-outline" class="card-icon"></ion-icon>
           <ion-label>Tips & Resources</ion-label>
         </ion-card>

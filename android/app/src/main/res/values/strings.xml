@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">TRAVELERS</string>
+    <string name="title_activity_main">TRAVELERS</string>
+    <string name="package_name">traverlers.app</string>
+    <string name="custom_url_scheme">traverlers.app</string>
+</resources>

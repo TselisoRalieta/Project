@@ -1,0 +1,53 @@
+<ion-content class="page-bg">
+  <div class="container">
+    <h1 class="title">Sign in</h1>
+    <p class="subtitle">Sign  finor free to access to in any of our products</p>
+
+    <ion-item lines="none" class="field-label">
+      <div class="field-text">Email address</div>
+    </ion-item>
+    <ion-item class="input-box" lines="none">
+      <ion-input placeholder=" " type="email"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="field-label">
+      <div class="field-text">Password</div>
+      <ion-button fill="clear" class="hide-toggle" slot="end" tabindex="-1">
+        <ion-icon name="eye-off-outline"></ion-icon>
+        <span class="small">Hide</span>
+      </ion-button>
+    </ion-item>
+    <ion-item class="input-box" lines="none">
+      <ion-input placeholder=" " type="password"></ion-input>
+    </ion-item>
+    <div class="pw-hint">Use 8 or more characters with a mix of letters, numbers & symbols</div>
+
+
+    <ion-item lines="none" class="agree-terms">
+  <ion-checkbox slot="start" checked></ion-checkbox>
+  <ion-label>
+    <span class="agree-text">Agree to our <u>Terms of use</u> and <u>Privacy Policy</u></span>
+  </ion-label>
+</ion-item>
+
+
+
+    <!-- reCAPTCHA placeholder -->
+    <div class="recaptcha-box">
+      <div class="rec-left">
+        <ion-icon name="checkmark-circle-outline"></ion-icon>
+        <div>I'm not a robot</div>
+      </div>
+      <div class="rec-right">
+        <!-- This is a visual placeholder for the reCAPTCHA widget -->
+        <div class="rec-placeholder">reCAPTCHA</div>
+      </div>
+    </div>
+
+    <ion-button class="cta" expand="block" disabled>Sign up</ion-button>
+
+    <div class="footer-link" [routerLink]="['/create-account']">
+      Already have an account? <a>Sign in</a>
+    </div>
+  </div>
+</ion-content>

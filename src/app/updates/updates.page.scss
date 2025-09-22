@@ -1,45 +1,105 @@
-ion-thumbnail {
-  width: 50px;
-  height: 50px;
+.home-content {
+  --background: #f2f2f2;
+  padding: 0;
 }
 
-ion-item {
+/* Top Header */
+.top-header {
+  width: 100%;
+  padding: 10px 15px;
+}
+
+.welcome-text h2 {
+  font-size: 18px;
+  margin: 0;
+  color: #333;
+  font-weight: 600;
+}
+
+.welcome-subtext {
+  padding: 0 15px 10px;
+}
+
+.welcome-subtext p {
+  color: #888;
+  font-size: 14px;
+  margin: 0;
+}
+
+.top-icons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  padding-right: 10px;
+}
+
+.top-icons ion-button {
+  --padding-start: 0;
+  --padding-end: 0;
+  font-size: 20px;
+  color: #3e3e3e;
+}
+
+/* News Cards */
+.news-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  margin: 8px 0;
   cursor: pointer;
   padding: 10px;
+
+  .card-content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .card-image {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .card-text {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+
+    h2 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    p {
+      margin: 2px 0;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .full-text {
+      margin-top: 5px;
+      font-size: 14px;
+      color: #555;
+    }
+  }
 }
 
-ion-item ion-label p {
-  font-size: 16px;
-  color: #555;
-  margin-top: 10px;
-}
-
-ion-card {
-  margin: 20px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-ion-card-header {
-  background-color: #f4f4f4;
-}
-
-ion-card-title {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-ion-card-subtitle {
-  font-size: 14px;
-  color: #888;
-}
-
-ion-card-content {
-  font-size: 16px;
-  color: #555;
-}
+/* Footer / Tab Bar */
 .tab-bar {
   border-top: 1px solid #ccc;
-  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.05);
   position: fixed;
   bottom: 0;
   left: 0;
@@ -60,11 +120,6 @@ ion-card-content {
 
 .tab-bar ion-icon {
   font-size: 24px;
-}
-
-.profile-pic ion-avatar {
-  width: 40px;
-  height: 40px;
 }
 
 .footer-buttons {

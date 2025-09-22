@@ -1,9 +1,9 @@
 <ion-content fullscreen class="onboarding">
   <!-- Slide 1 Content -->
   <section *ngIf="currentSlide === 0" class="slide-content first-slide">
-    <div class="background" style="background-image: url('/assets/img/1.png');"></div>
+    <div class="background" style="background-image: url('/assets/img/5.jpg');"></div>
     <div class="top-right" (click)="skipOnboarding()">
-      <ion-text color="light" [routerLink]="['/registration']">Skip</ion-text>
+      <ion-text color="light" [routerLink]="['/signup']">Skip</ion-text>
     </div>
     <div class="content">
       <h2>
@@ -23,9 +23,9 @@
 
   <!-- Slide 2 Content -->
   <section *ngIf="currentSlide === 1" class="slide-content second-slide">
-    <div class="background" style="background-image: url('/assets/img/2.png');"></div>
+    <div class="background" style="background-image: url('/assets/img/2.jpg');"></div>
     <div class="top-right" (click)="skipOnboarding()">
-      <ion-text color="light" [routerLink]="['/registration']">Skip</ion-text>
+      <ion-text color="light" [routerLink]="['/signup']">Skip</ion-text>
     </div>
     <div class="content">
       <h2>
@@ -46,7 +46,7 @@
 
   <!-- Slide 3 Content -->
   <section *ngIf="currentSlide === 2" class="slide-content third-slide">
-    <div class="background" style="background-image: url('/assets/img/3.png');"></div>
+    <div class="background" style="background-image: url('/assets/img/3.jpg');"></div>
     <div class="content">
       <h2>
         <strong>People don’t take trips, trips take <span class="highlight">people</span></strong>
@@ -60,7 +60,7 @@
         <span class="dot"></span>
         <span class="dot active"></span>
       </div>
-      <ion-button expand="block" class="get-started" [routerLink]="['/registration']">Get Started</ion-button>
+      <ion-button expand="block" class="get-started" [routerLink]="['/signup']">Get Started</ion-button>
     </div>
   </section>
 </ion-content>

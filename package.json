@@ -1,5 +1,5 @@
 {
-  "name": "Project",
+  "name": "project",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
@@ -21,13 +21,19 @@
     "@angular/platform-browser": "^20.0.0",
     "@angular/platform-browser-dynamic": "^20.0.0",
     "@angular/router": "^20.0.0",
+    "@awesome-cordova-plugins/call-number": "^8.1.0",
+    "@capacitor/android": "^7.4.3",
     "@ionic/angular": "^8.0.0",
     "@types/firebase": "^2.4.32",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
     "firebase": "^12.1.0",
     "ionicons": "^7.0.0",
+    "ol": "^10.6.1",
     "rxjs": "~7.8.0",
     "swiper": "^11.2.10",
     "tslib": "^2.3.0",
+    "uuid": "^13.0.0",
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
@@ -37,13 +43,17 @@
     "@angular-eslint/eslint-plugin-template": "^20.0.0",
     "@angular-eslint/schematics": "^20.0.0",
     "@angular-eslint/template-parser": "^20.0.0",
-    "@angular/cli": "^20.0.0",
+    "@angular/cli": "20.3.1",
     "@angular/compiler-cli": "^20.0.0",
     "@angular/language-service": "^20.0.0",
+    "@capacitor/cli": "^7.4.3",
+    "@capacitor/core": "^7.4.3",
     "@ionic/angular-toolkit": "^12.0.0",
     "@types/jasmine": "~5.1.0",
+    "@types/ol": "^6.5.3",
     "@typescript-eslint/eslint-plugin": "^8.18.0",
     "@typescript-eslint/parser": "^8.18.0",
+    "call-number": "^1.0.1",
     "eslint": "^9.16.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jsdoc": "^48.2.1",
@@ -57,5 +67,20 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.8.0"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "cordova": {
+    "plugins": {
+      "mx.ferreyra.callnumber": {}
+    }
+  },
+  "main": "karma.conf.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TselisoRalieta/Project.git"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TselisoRalieta/Project/issues"
+  }
 }

@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" class="icon-button">
+        <ion-icon name="walk-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+<br><br><br><br>
+
+  <ion-card class="hazard-card">
+    <!-- Type -->
+    <ion-item>
+      <ion-label>Type</ion-label>
+      <ion-select [(ngModel)]="hazard.type">
+        <ion-select-option value="closure">Closure</ion-select-option>
+        <ion-select-option value="rockslide">Rockslide</ion-select-option>
+        <ion-select-option value="flood">Flood</ion-select-option>
+        <ion-select-option value="ice">Ice</ion-select-option>
+        <ion-select-option value="snow">Snow</ion-select-option>
+        <ion-select-option value="other">Other</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <br>
+
+    <!-- Description -->
+    <ion-item>
+      <ion-label position="stacked">Description</ion-label>
+      <ion-input [(ngModel)]="hazard.description"></ion-input>
+    </ion-item><br>
+
+    <!-- Location -->
+    <ion-item>
+      <ion-label position="stacked">District</ion-label>
+      <ion-input [(ngModel)]="hazard.location.district"></ion-input>
+    </ion-item><br>
+
+    <ion-item>
+      <ion-label position="stacked">Village</ion-label>
+      <ion-input [(ngModel)]="hazard.location.village"></ion-input>
+    </ion-item><br>
+
+    <!-- Severity -->
+    <ion-item>
+      <ion-label>Severity</ion-label>
+      <ion-segment [(ngModel)]="hazard.severity">
+        <ion-segment-button value="low">Low</ion-segment-button>
+        <ion-segment-button value="medium">Medium</ion-segment-button>
+        <ion-segment-button value="high">High</ion-segment-button>
+      </ion-segment>
+    </ion-item>
+    <br><br><br>
+
+    <!-- Submit -->
+    <!-- Submit -->
+<ion-button expand="block" class="submit-button" (click)="submitReport()">Submit</ion-button>
+  </ion-card>
+  <ion-footer class="tab-bar">
+    <ion-toolbar>
+      <ion-buttons slot="start" class="footer-buttons">
+        <ion-button>
+          <ion-icon name="home-outline"></ion-icon>
+          HOME
+        </ion-button>
+
+        <ion-button [routerLink]="['/about-us']">
+          <ion-icon name="people-outline"></ion-icon>
+          About Us
+        </ion-button>
+
+        <ion-button [routerLink]="['/settings']">
+          <ion-icon name="settings-outline"></ion-icon>
+          Settings
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>
+</ion-content>

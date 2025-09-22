@@ -1,139 +1,140 @@
-.contact-info {
-  padding: 24px;
+ion-content.contact-info {
+  --background: #ffffff;
   font-family: 'Roboto', sans-serif;
-  background-color: #f4f4f4;
+  padding: 24px 0;
+}
 
-  .logo {
-    text-align: left;
-    margin-bottom: 24px;
-    margin-left: 15px;
+/* Shared container like signup page */
+.container {
+  max-width: 420px;
+  margin: 0 auto 32px;
+  padding: 0 18px;
+}
 
-    ion-icon {
+/* Hero Section */
+.logo {
+  text-align: left;
+  margin: 0 0 24px 18px;
+
+  ion-icon {
+    color: #3e3e3e;
+    font-size: 40px;
+  }
+}
+
+.hero-content {
+  margin-bottom: 20px;
+
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 8px;
+  }
+
+  h2 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 12px;
+  }
+
+  p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.5;
+  }
+}
+
+.hero-image {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Introduction */
+.introduction {
+  h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 14px;
+  }
+
+  p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+  }
+}
+
+/* Call to Action */
+.cta {
+  text-align: center;
+
+  p {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 18px;
+  }
+
+  ion-button {
+    font-size: 15px;
+    padding: 12px 20px;
+    --background: #3e3e3e;
+    --color: #fff;
+    --border-radius: 8px;
+    font-weight: 600;
+  }
+}
+
+/* Contact Details */
+.contact-details {
+  p {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 12px;
+
+    a {
       color: #000;
+      text-decoration: none;
+      font-weight: 500;
     }
   }
 
-  .hero-content {
-    margin-bottom: 36px;
-    margin-left: 15px;
-    
-    h1 {
-      font-size: 32px;
-      font-weight: 700;
-      color: #000;
-    }
+  .social-media {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
 
-    h2 {
-      font-size: 20px;
-      color: #333;
-      margin-bottom: 16px;
-    }
-
-    p {
-      font-size: 16px;
-      color: #555;
-    }
-  }
-
-  .hero-image {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
-
-  .introduction {
-    padding: 20px;
-    background-color: #fff;
-    text-align: left;
-
-    h3 {
-      font-size: 24px;
-      font-weight: 700;
-      color: #333;
-      margin-bottom: 16px;
-    }
-
-    p {
-      font-size: 16px;
-      color: #555;
-      line-height: 1.5;
-    }
-  }
-
-  .cta {
-    background-color: #f4f4f4;
-    padding: 20px;
-    text-align: center;
-
-    p {
-      font-size: 16px;
-      color: #555;
-      margin-bottom: 20px;
-    }
-
-    /* Custom styling for the button */
     ion-button {
-      font-size: 16px;
-      padding: 12px 20px;
-      --background: #3e3e3e; /* Set background color to #3e3e3e */
-      --color: #fff;
-      --border-radius: 8px;
-    }
-  }
-
-  .contact-details {
-    p {
+      --background: transparent;
+      --color: #000;
+      justify-content: flex-start;
       font-size: 14px;
-      color: #333;
-      line-height: 1.5;
-      margin-bottom: 12px;
-      margin-left: 15px;
 
-      a {
+      ion-icon {
+        margin-right: 10px;
+        font-size: 20px;
         color: #000;
-        text-decoration: none;
       }
-    }
-
-    .social-media {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: 16px;
-      margin-left: 15px;
-
-      ion-button {
-        --background: transparent;
-        --color: #000;
-        --border-radius: 8px;
-        --padding-start: 0;
-        --padding-end: 0;
-
-        ion-icon {
-          margin-right: 12px;
-          font-size: 20px;
-          color: #000;
-        }
-      }
-    }
-  }
-
-  /* Ensuring footer text is visible and correctly positioned */
-  .footer-text {
-    padding-top: 20px;
-    text-align: center;
-    color: #888;
-    position: relative;  /* Ensure it's not overlapped by fixed elements */
-    z-index: 2;         /* Give it a higher z-index if needed */
-    margin-bottom: 100px;  /* Ensure it stays above tab bar */
-    
-    p {
-      font-size: 14px;
-      color: #888;
     }
   }
 }
 
+/* Footer text */
+.footer-text {
+  text-align: center;
+  color: #888;
+  margin-bottom: 100px;
+
+  p {
+    font-size: 13px;
+    color: #888;
+  }
+}
+
+/* Bottom tab bar */
 .tab-bar {
   border-top: 1px solid #ccc;
   box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
@@ -155,7 +156,7 @@
   }
 
   ion-icon {
-    font-size: 24px;
+    font-size: 22px;
   }
 
   .footer-buttons {

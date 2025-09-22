@@ -1,0 +1,65 @@
+/* Page background */
+ion-content {
+  --background: #ffffff; /* white page background */
+}
+
+/* Style for all ion-cards */
+ion-card {
+  --background: #868383c2; /* white card background */
+  color: #3e3e3e; /* text color inside cards */
+  border-radius: 12px; /* optional: rounded corners */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* soft shadow */
+}
+
+/* Card header text */
+ion-card-header {
+  color: #3e3e3e;
+}
+
+/* Card title and subtitle */
+ion-card-title,
+ion-card-subtitle {
+  color: #3e3e3e;
+}
+
+/* Card content text */
+ion-card-content {
+  color: #3e3e3e;
+}
+
+/* Icons inside cards */
+ion-card ion-icon {
+  color: #3e3e3e;
+}
+
+/* Footer / tab bar remains dark */
+.tab-bar {
+  border-top: 1px solid #ccc;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.tab-bar ion-toolbar {
+  --background: #3e3e3e;
+}
+
+.tab-bar ion-button {
+  flex-direction: column;
+  color: #fff;
+  font-size: 12px;
+  padding: 0;
+}
+
+.tab-bar ion-icon {
+  font-size: 24px;
+}
+
+.footer-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
