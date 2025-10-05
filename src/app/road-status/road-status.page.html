@@ -1,11 +1,13 @@
 <ion-header>
   <ion-toolbar style="--background: #ffffff;">
-    <!-- Left: Avatar with walk icon -->
-    <ion-buttons slot="start">
-      <ion-avatar>
-        <ion-icon name="walk" size="large" style="color: #3e3e3e;"></ion-icon>
-      </ion-avatar>
-    </ion-buttons>
+
+    <ion-col size="auto" class="top-icons" style="display: flex; align-items: center; justify-content: flex-end; padding: 0;">
+      <ion-buttons>
+        <ion-button [routerLink]="['/notifications']">
+          <ion-icon name="notifications-outline" size="large" style="color: #3e3e3e;"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-col>
 
   </ion-toolbar>
 </ion-header>
@@ -56,7 +58,7 @@
   <ion-footer class="tab-bar">
     <ion-toolbar>
       <ion-buttons slot="start" class="footer-buttons">
-        <ion-button>
+        <ion-button [routerLink]="['/dashbourd']">
           <ion-icon name="home-outline"></ion-icon>
           HOME
         </ion-button>
