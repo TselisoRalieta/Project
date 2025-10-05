@@ -7,8 +7,16 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
-// 👇 Import CallNumber plugin
+// Cordova plugin
 import { CallNumber } from '@awesome-cordova-plugins/call-number/ngx';
+
+// Firebase imports
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+
+// ✅ Import firebaseConfig directly
+import { firebaseConfig } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,11 +24,14 @@ import { CallNumber } from '@awesome-cordova-plugins/call-number/ngx';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule // ✅ HTTP Client for API calls
+    HttpClientModule,
+    AngularFireModule.initializeApp(firebaseConfig), // Use firebaseConfig here
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    CallNumber // ✅ Cordova CallNumber plugin
+    CallNumber
   ],
   bootstrap: [AppComponent],
 })

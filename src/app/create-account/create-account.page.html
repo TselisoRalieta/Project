@@ -8,7 +8,7 @@
       <div class="field-text">User name</div>
     </ion-item>
     <ion-item class="input-box" lines="none">
-      <ion-input type="text" placeholder=" "></ion-input>
+      <ion-input type="text" placeholder=" " [(ngModel)]="username"></ion-input>
     </ion-item>
 
     <!-- Email -->
@@ -16,19 +16,19 @@
       <div class="field-text">Email address</div>
     </ion-item>
     <ion-item class="input-box" lines="none">
-      <ion-input type="email" placeholder=" "></ion-input>
+      <ion-input type="email" placeholder=" " [(ngModel)]="email"></ion-input>
     </ion-item>
 
     <!-- Password -->
     <ion-item lines="none" class="field-label">
       <div class="field-text">Password</div>
-      <ion-button fill="clear" class="hide-toggle" slot="end" tabindex="-1">
-        <ion-icon name="eye-off-outline"></ion-icon>
-        <span class="small">Hide</span>
+      <ion-button fill="clear" class="hide-toggle" slot="end" (click)="togglePassword()">
+        <ion-icon [name]="showPassword ? 'eye-outline' : 'eye-off-outline'"></ion-icon>
+        <span class="small">{{ showPassword ? 'Hide' : 'Show' }}</span>
       </ion-button>
     </ion-item>
     <ion-item class="input-box" lines="none">
-      <ion-input type="password" placeholder=" "></ion-input>
+      <ion-input [type]="showPassword ? 'text' : 'password'" placeholder=" " [(ngModel)]="password"></ion-input>
     </ion-item>
     <div class="pw-hint">
       Use 8 or more characters with a mix of letters, numbers & symbols
@@ -52,7 +52,7 @@
     </div>
 
     <!-- CTA -->
-    <ion-button class="cta" expand="block" disabled>
+    <ion-button class="cta" expand="block" (click)="register()">
       Create an account
     </ion-button>
 

@@ -5,34 +5,49 @@
       Already have an account?
     </div>
 
+    <!-- Email field -->
     <ion-item lines="none" class="field-label">
       <div class="field-text">Email address</div>
     </ion-item>
     <ion-item class="input-box" lines="none">
-      <ion-input placeholder=" " type="email"></ion-input>
+      <ion-input placeholder=" " type="email" [(ngModel)]="email"></ion-input>
     </ion-item>
 
+    <!-- Password field -->
     <ion-item lines="none" class="field-label">
       <div class="field-text">Password</div>
-      <ion-button fill="clear" class="hide-toggle" slot="end" tabindex="-1">
-        <ion-icon name="eye-off-outline"></ion-icon>
-        <span class="small">Hide</span>
+      <ion-button
+        fill="clear"
+        class="hide-toggle"
+        slot="end"
+        tabindex="-1"
+        (click)="togglePassword()"
+      >
+        <ion-icon [name]="showPassword ? 'eye-outline' : 'eye-off-outline'"></ion-icon>
+        <span class="small">{{ showPassword ? 'Hide' : 'Show' }}</span>
       </ion-button>
     </ion-item>
     <ion-item class="input-box" lines="none">
-      <ion-input placeholder=" " type="password"></ion-input>
+      <ion-input
+        placeholder=" "
+        [type]="showPassword ? 'text' : 'password'"
+        [(ngModel)]="password"
+      ></ion-input>
     </ion-item>
-    <div class="pw-hint">Use 8 or more characters with a mix of letters, numbers & symbols</div>
 
+    <div class="pw-hint">
+      Use 8 or more characters with a mix of letters, numbers & symbols
+    </div>
 
+    <!-- Terms -->
     <ion-item lines="none" class="agree-terms">
-  <ion-checkbox slot="start" checked></ion-checkbox>
-  <ion-label>
-    <span class="agree-text">Agree to our <u>Terms of use</u> and <u>Privacy Policy</u></span>
-  </ion-label>
-</ion-item>
-
-
+      <ion-checkbox slot="start" checked></ion-checkbox>
+      <ion-label>
+        <span class="agree-text">
+          Agree to our <u>Terms of use</u> and <u>Privacy Policy</u>
+        </span>
+      </ion-label>
+    </ion-item>
 
     <!-- reCAPTCHA placeholder -->
     <div class="recaptcha-box">
@@ -41,15 +56,16 @@
         <div>I'm not a robot</div>
       </div>
       <div class="rec-right">
-        <!-- This is a visual placeholder for the reCAPTCHA widget -->
         <div class="rec-placeholder">reCAPTCHA</div>
       </div>
     </div>
 
-    <ion-button class="cta" expand="block" disabled>Sign up</ion-button>
+    <!-- Sign in button -->
+    <ion-button class="cta" expand="block" (click)="login()">Sign in</ion-button>
 
+    <!-- Link to create account -->
     <div class="footer-link" [routerLink]="['/create-account']">
-      Already have an account? <a>Sign in</a>
+      Don't have an account? <a>Create one</a>
     </div>
   </div>
 </ion-content>
