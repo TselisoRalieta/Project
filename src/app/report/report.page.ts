@@ -1,6 +1,14 @@
 import { Component } from '@angular/core';
-import { HazardService } from '../services/hazard.service';
-import { Hazard } from '../models/hazard';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
+
+interface Hazard {
+  type: string;
+  description: string;
+  location: { district: string; village: string };
+  severity: string;
+  source: string;
+  timestamp?: string;
+}
 
 @Component({
   selector: 'app-report',
@@ -14,39 +22,40 @@ export class ReportPage {
     description: '',
     location: { district: '', village: '' },
     severity: 'low',
-    source: 'crowd'
+    source: 'crowd',
   };
 
-  constructor(private hazardService: HazardService) {}
+  constructor(private db: AngularFireDatabase) {}
 
   submitReport() {
-    // Basic validation: check all required fields
-    if (!this.hazard.type) {
-      alert('Please select a hazard type.');
-      return;
-    }
-    if (!this.hazard.description?.trim()) {
-      alert('Please enter a description.');
-      return;
-    }
-    if (!this.hazard.location.district?.trim()) {
-      alert('Please enter a district.');
-      return;
-    }
-    if (!this.hazard.location.village?.trim()) {
-      alert('Please enter a village.');
-      return;
-    }
-    if (!this.hazard.severity) {
-      alert('Please select a severity level.');
+    if (!this.hazard.type || !this.hazard.description?.trim() || 
+        !this.hazard.location.district?.trim() || !this.hazard.location.village?.trim()) {
+      alert('Please fill in all fields.');
       return;
     }
 
-    // All fields valid, submit
     this.hazard.timestamp = new Date().toISOString();
-    this.hazardService.reportHazard(this.hazard).subscribe({
-      next: () => alert('Hazard reported successfully!'),
-      error: (err) => alert('Error reporting hazard: ' + err)
-    });
+
+    // Push hazard to Firebase
+    this.db.list('hazards').push(this.hazard)
+      .then(() => {
+        // Automatically push a notification
+        this.db.list('notifications').push({
+          title: `New Hazard: ${this.hazard.type}`,
+          description: this.hazard.description,
+          timestamp: this.hazard.timestamp
+        });
+
+        alert('Hazard submitted successfully!');
+        // Reset form
+        this.hazard = {
+          type: 'other',
+          description: '',
+          location: { district: '', village: '' },
+          severity: 'low',
+          source: 'crowd',
+        };
+      })
+      .catch(err => alert('Error: ' + err));
   }
 }

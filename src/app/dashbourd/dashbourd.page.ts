@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-// import { getAuth, onAuthStateChanged } from 'firebase/auth';
-// import { getDatabase, ref as dbRef, get } from 'firebase/database';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { Router } from '@angular/router';
+import { NotificationService } from './../services/notification'; // adjust path
 
 @Component({
   selector: 'app-dashbourd',
@@ -9,31 +10,23 @@ import { Component, OnInit } from '@angular/core';
   standalone: false,
 })
 export class DashbourdPage implements OnInit {
-  firstName: string = 'User'; // Default name used for now
+  firstName: string = 'User';
+  notificationsCount: number = 0;
 
-  constructor() {}
+  constructor(
+    private db: AngularFireDatabase, 
+    private router: Router,
+    private notifService: NotificationService
+  ) {}
 
   ngOnInit() {
-    // Firebase logic is temporarily disabled for frontend development only
+  // Subscribe to unread notifications count
+  this.notifService.unreadCount$.subscribe((count: number) => {
+    this.notificationsCount = count;
+  });
+}
 
-    /*
-    const auth = getAuth();
-    const db = getDatabase();
-
-    onAuthStateChanged(auth, async (user) => {
-      if (user) {
-        const userRef = dbRef(db, 'users/' + user.uid);
-        try {
-          const snapshot = await get(userRef);
-          if (snapshot.exists()) {
-            const data = snapshot.val();
-            this.firstName = data.name || 'User';
-          }
-        } catch (error) {
-          console.error('Error fetching user name:', error);
-        }
-      }
-    });
-    */
+  goToNotifications() {
+    this.router.navigate(['/notifications']);
   }
 }

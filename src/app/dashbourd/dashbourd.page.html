@@ -13,8 +13,9 @@
 
       <ion-col size="auto" class="top-icons">
         <ion-buttons>
-          <ion-button [routerLink]="['/notifications']">
+          <ion-button (click)="goToNotifications()">
             <ion-icon name="notifications-outline"></ion-icon>
+            <ion-badge *ngIf="notificationsCount > 0">{{ notificationsCount }}</ion-badge>
           </ion-button>
         </ion-buttons>
       </ion-col>

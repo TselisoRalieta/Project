@@ -35,7 +35,7 @@
       <ion-col size="6" size-md="6">
         <ion-card button class="quick-card big-card" [routerLink]="['/manage-requests']">
           <ion-icon name="refresh-outline" class="card-icon big-icon"></ion-icon>
-          <ion-label class="card-label">Updates</ion-label>
+          <ion-label class="card-label">Accounts</ion-label>
         </ion-card>
       </ion-col>
 
@@ -50,11 +50,13 @@
   
     <ion-row>
       <ion-col size="12">
-        <ion-card button class="quick-card big-card" [routerLink]="['/create-event']">
-          <ion-icon name="calendar-outline" class="card-icon big-icon"></ion-icon>
-          <ion-label class="card-label">Create Events</ion-label>
-        </ion-card>
-      </ion-col>
+  <ion-card button class="quick-card big-card" [routerLink]="['/blog']">
+    <!-- Use a "newspaper-outline" icon for blog/news -->
+    <ion-icon name="newspaper-outline" class="card-icon big-icon"></ion-icon>
+    <ion-label class="card-label">Blog</ion-label>
+  </ion-card>
+</ion-col>
+
 
       <ion-col size="6" size-md="6">
   <ion-card button class="quick-card" [routerLink]="['/weather']">

@@ -10,16 +10,15 @@
   background: #fff;
 }
 .notification-btn {
-  --background: transparent; /* Remove any button background */
-  --ripple-color: transparent; /* Remove blue ripple on click */
-  color: #3e3e3e; /* Ensure icon color */
+  --background: transparent;
+  --ripple-color: transparent;
+  color: #3e3e3e;
   font-size: 26px;
 }
-
 .notification-btn ion-icon {
-  color: #3e3e3e; /* Force icon color to gray */
+  font-size: 26px;
+  color: #3e3e3e;
 }
-
 .profile-pic ion-avatar {
   width: 40px;
   height: 40px;
@@ -28,12 +27,10 @@
   align-items: center;
   justify-content: center;
 }
-
 .profile-pic ion-icon {
   font-size: 22px;
   color: #3e3e3e;
 }
-
 .header-title {
   position: absolute;
   left: 50%;
@@ -42,16 +39,6 @@
   font-weight: 600;
   color: #3e3e3e;
   margin: 0;
-}
-
-.notification-btn {
-  font-size: 22px;
-  color: #3e3e3e; /* Ensure icon is #3e3e3e */
-}
-
-.notification-btn ion-icon {
-  font-size: 26px;
-  color: #3e3e3e; /* Ensure icon is #3e3e3e */
 }
 
 /* ===== Page Background ===== */
@@ -63,30 +50,28 @@
 ion-list {
   background: #fff;
 }
-
 ion-item {
   --background: #fff;
   --min-height: 70px;
   border-bottom: 1px solid #f1f1f1;
 }
-
+ion-item.viewed {
+  opacity: 0.6; /* Dim viewed notifications */
+}
 ion-item ion-label h2 {
   font-weight: 600;
   margin: 0;
   color: #3e3e3e;
 }
-
 ion-item ion-label p {
   font-size: 14px;
   margin: 4px 0;
   color: #3e3e3e;
 }
-
 ion-item ion-label small {
   font-size: 12px;
   color: #3e3e3e;
 }
-
 ion-avatar {
   background: #f9f9f9;
   border-radius: 50%;
@@ -94,7 +79,6 @@ ion-avatar {
   align-items: center;
   justify-content: center;
 }
-
 ion-avatar ion-icon {
   font-size: 24px;
   color: var(--ion-color-primary);
@@ -110,19 +94,16 @@ ion-avatar ion-icon {
   text-align: center;
   padding: 20px;
 }
-
 .empty-state ion-icon {
   font-size: 48px;
   color: #ccc;
   margin-bottom: 16px;
 }
-
 .empty-state h2 {
   margin: 0 0 8px;
   font-weight: 600;
   color: #3e3e3e;
 }
-
 .empty-state p {
   color: #777;
   font-size: 14px;
@@ -138,22 +119,18 @@ ion-avatar ion-icon {
   right: 0;
   z-index: 10;
 }
-
 .tab-bar ion-toolbar {
   --background: #3e3e3e;
 }
-
 .tab-bar ion-button {
   flex-direction: column;
   color: #fff;
   font-size: 12px;
   padding: 0;
 }
-
 .tab-bar ion-icon {
   font-size: 24px;
 }
-
 .footer-buttons {
   display: flex;
   justify-content: space-between;

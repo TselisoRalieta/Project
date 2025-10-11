@@ -1,174 +1,142 @@
 import { Component, OnInit } from '@angular/core';
-import { Map, View } from 'ol';
-import TileLayer from 'ol/layer/Tile';
+import { ToastController } from '@ionic/angular';
+import { Feature } from 'ol';
+import { LineString } from 'ol/geom';
+import { Stroke, Style } from 'ol/style';
+import { fromLonLat } from 'ol/proj';
 import VectorLayer from 'ol/layer/Vector';
-import { OSM } from 'ol/source';
 import VectorSource from 'ol/source/Vector';
-import Feature from 'ol/Feature';
-import Point from 'ol/geom/Point';
-import LineString from 'ol/geom/LineString';
-import { Icon, Style, Stroke } from 'ol/style';
-import { fromLonLat, toLonLat } from 'ol/proj';
 
 @Component({
   selector: 'app-location',
   templateUrl: './location.page.html',
   styleUrls: ['./location.page.scss'],
-  standalone: false,
 })
 export class LocationPage implements OnInit {
+  departureAddress: string = '';
+  arrivalAddress: string = '';
+  routeLayer: VectorLayer<VectorSource> | null = null;
 
-  map!: Map;
-  markerLayer!: VectorLayer;
-  routeLayer!: VectorLayer;
-
-  departureCoordinates: string | null = null;
-  departureAddress: string | null = null;
-  arrivalCoordinates: string | null = null;
-  arrivalAddress: string | null = null;
-
-  constructor() {}
+  constructor(private toastCtrl: ToastController) {}
 
   ngOnInit() {
-    // Initialize map after view is loaded
-    setTimeout(() => this.initializeMap(), 500);
-  }
-
-  initializeMap() {
-    const markerSource = new VectorSource();
-    this.markerLayer = new VectorLayer({
-      source: markerSource,
-    });
-
-    // Route layer with style for main/alternative routes
+    // Initialize routeLayer
     this.routeLayer = new VectorLayer({
       source: new VectorSource(),
-      style: (feature) => {
-        const type = feature.get('routeType');
-        return new Style({
-          stroke: new Stroke({
-            color: type === 'main' ? 'blue' : 'green',
-            width: type === 'main' ? 5 : 3,
-          }),
-        });
-      },
+      style: new Style({
+        stroke: new Stroke({
+          color: '#3e3e3e',
+          width: 4
+        })
+      })
     });
 
-    this.map = new Map({
-      target: 'map',
-      layers: [
-        new TileLayer({ source: new OSM() }),
-        this.routeLayer,
-        this.markerLayer,
-      ],
-      view: new View({
-        center: fromLonLat([27.4854, -29.3158]),
-        zoom: 12,
-      }),
-    });
-
-    // Click to select departure/arrival
-    this.map.on('click', async (event: any) => {
-      const coords = event.coordinate;
-      const [lon, lat] = toLonLat(coords);
-      const formattedCoords = `${lat.toFixed(6)},${lon.toFixed(6)}`;
-
-      // Create marker feature
-      const marker = new Feature({ geometry: new Point(coords) });
-      marker.setStyle(new Style({
-        image: new Icon({
-          anchor: [0.5, 1],
-          src: !this.departureCoordinates
-            ? 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png'
-            : 'https://maps.google.com/mapfiles/ms/icons/red-dot.png',
-        }),
-      }));
-      this.markerLayer.getSource()?.addFeature(marker);
-
-      if (!this.departureCoordinates) {
-        this.departureCoordinates = formattedCoords;
-        this.departureAddress = await this.fetchAddress(lat, lon);
-        alert('Departure selected: ' + this.departureAddress);
-      } else if (!this.arrivalCoordinates) {
-        this.arrivalCoordinates = formattedCoords;
-        this.arrivalAddress = await this.fetchAddress(lat, lon);
-        alert('Arrival selected: ' + this.arrivalAddress);
-
-        // Show main and alternative routes
-        this.showRoute(this.departureCoordinates, this.arrivalCoordinates);
-      }
-    });
+    // Initialize map here and add routeLayer to map
+    // Example: this.map.addLayer(this.routeLayer);
   }
 
-  // Save selected locations
-  saveCoordinates() {
-    if (this.departureCoordinates && this.arrivalCoordinates &&
-        this.departureAddress && this.arrivalAddress) {
-      alert('Locations saved successfully!');
-    } else {
-      alert('Please select both departure and arrival locations.');
+  async fetchAddress(lat: number, lon: number): Promise<string> {
+    try {
+      const res = await fetch(
+        `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`
+      );
+      const data = await res.json();
+      return data.display_name || `Lat: ${lat}, Lon: ${lon}`;
+    } catch {
+      return `Address at ${lat.toFixed(6)}, ${lon.toFixed(6)}`;
     }
   }
 
-  // Show routes from Google Directions API
+  async showToast(message: string) {
+    const toast = await this.toastCtrl.create({
+      message,
+      duration: 2500,
+      color: 'dark'
+    });
+    toast.present();
+  }
+
+  async saveCoordinates() {
+    if (this.departureAddress && this.arrivalAddress) {
+      this.showToast('Locations saved successfully!');
+    } else {
+      this.showToast('Please select both departure and arrival points.');
+    }
+  }
+
   async showRoute(departure: string, arrival: string) {
     try {
-      const apiKey = 'YOUR_GOOGLE_MAPS_API_KEY'; // Replace with your key
-      const url = `https://maps.googleapis.com/maps/api/directions/json?origin=${departure}&destination=${arrival}&alternatives=true&key=${apiKey}`;
-      const response = await fetch(url);
+      const apiKey = 'YOUR_ORS_API_KEY'; // Replace with your ORS key
+      const [depLat, depLon] = departure.split(',').map(Number);
+      const [arrLat, arrLon] = arrival.split(',').map(Number);
+
+      const url = 'https://api.openrouteservice.org/v2/directions/driving-car/geojson';
+
+      const body = {
+        coordinates: [[depLon, depLat], [arrLon, arrLat]],
+        alternative_routes: {
+          target_count: 3,
+          share_factor: 0.6,
+          weight_factor: 1.4
+        }
+      };
+
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': apiKey
+        },
+        body: JSON.stringify(body)
+      });
+
       const data = await response.json();
 
-      if (data.routes && data.routes.length > 0) {
+      if (data.features && data.features.length > 0) {
         this.routeLayer!.getSource()!.clear();
 
-        data.routes.forEach((route: any, index: number) => {
-          const coordinates = this.decodePolyline(route.overview_polyline.points)
-            .map(([lat, lon]) => fromLonLat([lon, lat]));
+        data.features.forEach((feature: any, index: number) => {
+          const coords = feature.geometry.coordinates.map(
+            ([lon, lat]: [number, number]) => fromLonLat([lon, lat])
+          );
+
           const routeFeature = new Feature({
-            geometry: new LineString(coordinates),
+            geometry: new LineString(coords),
             routeType: index === 0 ? 'main' : 'alternative',
           });
+
+          // Set style: main route = dark gray, alternative = coral
+          routeFeature.setStyle(
+            new Style({
+              stroke: new Stroke({
+                color: index === 0 ? '#3e3e3e' : '#ff7f50',
+                width: 4
+              })
+            })
+          );
+
           this.routeLayer!.getSource()!.addFeature(routeFeature);
         });
+
+        this.showToast('Routes displayed successfully.');
+      } else {
+        this.showToast('No routes found.');
       }
     } catch (error) {
       console.error('Error fetching route:', error);
+      this.showToast('Failed to fetch route. Check API key.');
     }
   }
 
-  // Decode Google polyline
-  decodePolyline(encoded: string): [number, number][] {
-    let points: [number, number][] = [];
-    let index = 0, lat = 0, lng = 0;
-
-    while (index < encoded.length) {
-      let b, shift = 0, result = 0;
-      do {
-        b = encoded.charCodeAt(index++) - 63;
-        result |= (b & 0x1f) << shift;
-        shift += 5;
-      } while (b >= 0x20);
-      const dlat = ((result & 1) ? ~(result >> 1) : (result >> 1));
-      lat += dlat;
-
-      shift = 0;
-      result = 0;
-      do {
-        b = encoded.charCodeAt(index++) - 63;
-        result |= (b & 0x1f) << shift;
-        shift += 5;
-      } while (b >= 0x20);
-      const dlng = ((result & 1) ? ~(result >> 1) : (result >> 1));
-      lng += dlng;
-
-      points.push([lat / 1e5, lng / 1e5]);
+  // Example method to select departure/arrival (replace with actual logic)
+  async selectPoint(lat: number, lon: number, type: 'departure' | 'arrival') {
+    const address = await this.fetchAddress(lat, lon);
+    if (type === 'departure') {
+      this.departureAddress = address;
+      this.showToast('Departure selected: ' + this.departureAddress);
+    } else {
+      this.arrivalAddress = address;
+      this.showToast('Arrival selected: ' + this.arrivalAddress);
     }
-
-    return points;
-  }
-
-  // Dummy fetch address (replace with real API if needed)
-  async fetchAddress(lat: number, lon: number): Promise<string> {
-    return `Address at ${lat.toFixed(6)},${lon.toFixed(6)}`;
   }
 }

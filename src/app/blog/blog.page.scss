@@ -1,0 +1,158 @@
+/* General button with icon stacked */
+ion-button.icon-button {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #3e3e3e; /* dark gray text */
+}
+.blog-content {
+  --background: #ffffff; /* White background */
+  color: #3e3e3e;        /* Default text color */
+
+  /* Ensure all inner text elements inherit the color */
+  ion-label,
+  ion-input,
+  ion-textarea,
+  ion-select,
+  ion-button,
+  p,
+  span,
+  h1, h2, h3, h4, h5, h6 {
+    color: #3e3e3e;
+  }
+}
+
+/* Optional: Card styling (already using hazard-card class) */
+.hazard-card {
+  background-color: #f2f2f2;
+  color: #3e3e3e;
+  border-radius: 12px;
+  margin: 10px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 15px;
+}
+
+ion-button.icon-button {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #3e3e3e; /* dark gray text */
+}
+
+ion-button.icon-button ion-icon {
+  font-size: 26px;
+  color: #3e3e3e; /* icon color */
+}
+
+ion-button.icon-button span {
+  font-size: 12px;
+  margin-top: 2px;
+  color: #3e3e3e;
+}
+
+/* Header styling */
+ion-header ion-toolbar {
+  --background: #ffffff; /* white background */
+  color: #3e3e3e;        /* dark gray header text */
+}
+
+ion-header ion-buttons ion-button {
+  --padding-start: 0;
+  --padding-end: 0;
+  color: #3e3e3e;
+}
+
+ion-header ion-buttons ion-button span {
+  color: #3e3e3e;
+}
+
+ion-header ion-title {
+  color: #3e3e3e;
+}
+
+/* Content background */
+ion-content {
+  --background: #ffffff; /* white background */
+  color: #3e3e3e;        /* default text color */
+}
+
+/* Blog card styling (matches hazard card style) */
+.hazard-card {
+  background-color: #f2f2f2;
+  color: #3e3e3e; /* text inside card */
+  border-radius: 12px;
+  margin: 10px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 15px;
+}
+
+.hazard-card ion-item {
+  --background: transparent;
+  color: #3e3e3e; /* labels & input text */
+}
+
+.hazard-card ion-label {
+  color: #3e3e3e;
+}
+
+.hazard-card ion-input,
+.hazard-card ion-select,
+.hazard-card ion-textarea {
+  color: #3e3e3e;
+}
+
+/* Segment buttons color (added for consistency) */
+ion-segment-button {
+  color: #3e3e3e;
+}
+
+ion-segment-button.ion-selected {
+  background-color: #3e3e3e;
+  color: #fff; /* still white to highlight selection */
+}
+
+/* Submit button styling */
+.submit-button {
+  --background: #3e3e3e; /* button background */
+  --color: #ffffff;       /* text color */
+  border-radius: 8px;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+/* Tab bar / footer */
+.tab-bar {
+  border-top: 1px solid #ccc;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.tab-bar ion-toolbar {
+  --background: #3e3e3e;
+}
+
+.tab-bar ion-button {
+  flex-direction: column;
+  color: #fff;
+  font-size: 12px;
+  padding: 0;
+}
+
+.tab-bar ion-icon {
+  font-size: 24px;
+}
+
+.profile-pic ion-avatar {
+  width: 40px;
+  height: 40px;
+}
+
+.footer-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}

@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>New Blog</ion-title>
+  </ion-toolbar>
+</ion-header>
+<br><br><br>
+
+<ion-content [fullscreen]="true" class="ion-padding blog-content">
+  <ion-card class="hazard-card">
+    <ion-item>
+      <ion-label position="stacked">Title</ion-label>
+      <ion-input [(ngModel)]="blog.title"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Category</ion-label>
+      <ion-input [(ngModel)]="blog.category"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Snippet</ion-label>
+      <ion-input [(ngModel)]="blog.snippet"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Full Text</ion-label>
+      <ion-textarea [(ngModel)]="blog.fullText"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Image URL</ion-label>
+      <ion-input [(ngModel)]="blog.imageUrl"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" class="submit-button" (click)="submitBlog()">Submit Blog</ion-button>
+  </ion-card>
+</ion-content>
+
+<ion-footer class="tab-bar">
+    <ion-toolbar>
+      <ion-buttons slot="start" class="footer-buttons">
+        <ion-button [routerLink]="['/admin-menu']">
+          <ion-icon name="home-outline"></ion-icon>
+          HOME
+        </ion-button>
+  
+        <ion-button [routerLink]="['/about-us']">
+          <ion-icon name="people-outline"></ion-icon>
+          About Us
+        </ion-button>
+  
+        <ion-button [routerLink]="['/admin-account']">
+          <ion-icon name="settings-outline"></ion-icon>
+          Settings
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>
