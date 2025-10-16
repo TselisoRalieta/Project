@@ -1,0 +1,85 @@
+<ion-content class="contact-info">
+  <!-- Hero Section -->
+  <section class="hero">
+
+    <div class="container">
+      <div class="hero-content">
+        <h1>Safe Travel Lesotho</h1>
+        <h2>Your companion for secure journeys in the highlands</h2>
+        <p>Providing real-time weather and road hazard alerts across Lesotho’s mountainous regions.</p>
+      </div>
+      <img src="assets/img/lesotho_road_map.png" alt="Hero Image" class="hero-image" />
+    </div>
+  </section>
+
+  <!-- Introduction Section -->
+  <section class="introduction container">
+    <h3>Welcome to Safe Travel Lesotho</h3>
+    <p>
+      Safe Travel Lesotho is dedicated to enhancing travel safety in Lesotho’s highlands.
+      Our app integrates official weather data and community reports to provide timely alerts,
+      route suggestions, and emergency contacts. Whether you are a local or tourist, our goal is
+      to help you travel with confidence and avoid hazards.
+    </p>
+  </section>
+
+  <!-- Call to Action Section -->
+  <section class="cta container">
+    <p>
+      Stay informed and prepared wherever you go. Access offline maps, receive alerts about snow, 
+      floods, landslides, and blocked roads, and report hazards to help others stay safe.
+    </p>
+    <ion-button expand="block" [routerLink]="['/signup']">Download the App</ion-button>
+  </section>
+
+  <!-- Contact Details -->
+  <div class="contact-details container">
+    <p>Email: <a href="mailto:support@safetravellesotho.com">support@safetravellesotho.com</a></p>
+    <p>Phone: <a href="tel:+26612345678">+266 12 345 678</a></p>
+    <p>Address: Maseru West, Machabeng 123, Maseru, Lesotho</p>
+
+    <div class="social-media">
+      <ion-button fill="clear" href="https://instagram.com" target="_blank">
+        <ion-icon name="logo-instagram" slot="start"></ion-icon>
+        Instagram
+      </ion-button>
+      <ion-button fill="clear" href="https://facebook.com" target="_blank">
+        <ion-icon name="logo-facebook" slot="start"></ion-icon>
+        Facebook
+      </ion-button>
+      <ion-button fill="clear" href="https://linkedin.com" target="_blank">
+        <ion-icon name="logo-linkedin" slot="start"></ion-icon>
+        LinkedIn
+      </ion-button>
+      <ion-button fill="clear" href="https://twitter.com" target="_blank">
+        <ion-icon name="logo-twitter" slot="start"></ion-icon>
+        Twitter
+      </ion-button>
+    </div>
+  </div>
+
+  <!-- Footer Text -->
+  <div class="footer-text container">
+    <p>&copy; 2025 Safe Travel Lesotho. All Rights Reserved.</p>
+  </div>
+</ion-content>
+
+<!-- Bottom Tab Bar -->
+<ion-footer class="tab-bar">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="footer-buttons">
+      <ion-button [routerLink]="['/admin-menu']">
+        <ion-icon name="home-outline"></ion-icon>
+        HOME
+      </ion-button>
+      <ion-button [routerLink]="['/about']">
+        <ion-icon name="information-circle-outline"></ion-icon>
+        About
+      </ion-button>
+      <ion-button [routerLink]="['/admin-account']">
+        <ion-icon name="settings-outline"></ion-icon>
+        Settings
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

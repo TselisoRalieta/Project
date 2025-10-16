@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Router } from '@angular/router';
-import { NotificationService } from './../services/notification'; // adjust path
+import { NotificationService } from './../services/notification';
 
 @Component({
   selector: 'app-dashbourd',
@@ -14,17 +13,22 @@ export class DashbourdPage implements OnInit {
   notificationsCount: number = 0;
 
   constructor(
-    private db: AngularFireDatabase, 
     private router: Router,
     private notifService: NotificationService
   ) {}
 
   ngOnInit() {
-  // Subscribe to unread notifications count
-  this.notifService.unreadCount$.subscribe((count: number) => {
-    this.notificationsCount = count;
-  });
-}
+    // ✅ Get firstName from localStorage (already only first name)
+    const storedName = localStorage.getItem('firstName');
+    if (storedName) {
+      this.firstName = storedName;
+    }
+
+    // Subscribe to unread notifications count
+    this.notifService.unreadCount$.subscribe((count: number) => {
+      this.notificationsCount = count;
+    });
+  }
 
   goToNotifications() {
     this.router.navigate(['/notifications']);

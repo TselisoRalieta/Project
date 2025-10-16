@@ -1,7 +1,13 @@
 <ion-header>
   <ion-toolbar>
     <div class="header-container">
+      <ion-avatar class="profile-pic">
+        <ion-icon name="walk"></ion-icon>
+      </ion-avatar>
       <h2 class="header-title">Notifications</h2>
+      <ion-button class="notification-btn" fill="clear">
+        <ion-icon name="notifications-outline"></ion-icon>
+      </ion-button>
     </div>
   </ion-toolbar>
 </ion-header>
@@ -37,13 +43,13 @@
 <ion-footer class="tab-bar">
   <ion-toolbar>
     <ion-buttons slot="start" class="footer-buttons">
-      <ion-button [routerLink]="['/dashbourd']">
+      <ion-button [routerLink]="['/admin-menu']">
         <ion-icon name="home-outline"></ion-icon> HOME
       </ion-button>
-      <ion-button [routerLink]="['/about-us']">
+      <ion-button [routerLink]="['/about']">
         <ion-icon name="people-outline"></ion-icon> About Us
       </ion-button>
-      <ion-button [routerLink]="['/settings']">
+      <ion-button [routerLink]="['/admin-account']">
         <ion-icon name="settings-outline"></ion-icon> Settings
       </ion-button>
     </ion-buttons>

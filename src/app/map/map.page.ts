@@ -12,12 +12,11 @@ import { fromLonLat, toLonLat } from 'ol/proj';
 import { ToastController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-location',
-  templateUrl: './location.page.html',
-  styleUrls: ['./location.page.scss'],
-  standalone: false,
+  selector: 'app-map',
+  templateUrl: './map.page.html',
+  styleUrls: ['./map.page.scss'],
 })
-export class LocationPage implements AfterViewInit {
+export class MapPage implements AfterViewInit {
   map!: Map;
   markerLayer!: VectorLayer;
   routeLayer!: VectorLayer;

@@ -1,0 +1,65 @@
+/* location.page.scss */
+:host {
+  display: block;
+  height: 100%;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+/* Style the info section */
+.info-section ion-item {
+  --background: #ffffff; /* White background */
+  --color: #3e3e3e;      /* Text color */
+  margin: 5px 0;          /* Optional spacing between items */
+}
+
+.info-section ion-label {
+  color: #3e3e3e; /* Ensure label text color */
+}
+
+/* Style the save button */
+.save-button {
+  --background: #3e3e3e; /* Button background color */
+  --color: #ffffff;       /* Button text color */
+  margin: 10px 0;
+}
+
+/* Footer tab bar styles remain unchanged */
+.tab-bar {
+  border-top: 1px solid #ccc;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.tab-bar ion-toolbar {
+  --background: #3e3e3e;
+}
+
+.tab-bar ion-button {
+  flex-direction: column;
+  color: #fff;
+  font-size: 12px;
+  padding: 0;
+}
+
+.tab-bar ion-icon {
+  font-size: 24px;
+}
+
+.profile-pic ion-avatar {
+  width: 40px;
+  height: 40px;
+}
+
+.footer-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}

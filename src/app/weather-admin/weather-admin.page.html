@@ -1,0 +1,91 @@
+<ion-content class="ion-padding">
+  <!-- Country weather -->
+  <ion-card *ngIf="weatherData">
+    <ion-card-header (click)="toggleForecast('Maseru')" style="cursor:pointer;">
+      <ion-card-title>Lesotho (Country)</ion-card-title>
+      <ion-card-subtitle>
+        {{ weatherData.weather[0].description | titlecase }} - {{ today | date:'mediumDate' }}
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-icon [name]="getWeatherIcon(weatherData.weather[0].main)" size="large"></ion-icon>
+      <h2>{{ weatherData.main.temp | number:'1.0-1' }}°C</h2>
+    </ion-card-content>
+
+    <ion-list *ngIf="showForecast['Maseru']">
+      <ion-item *ngFor="let day of forecastData['Maseru']">
+        <ion-label>
+          {{ formatDate(day.dt_txt) }}: {{ day.weather[0].description | titlecase }}, {{ day.main.temp | number:'1.0-1' }}°C
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <!-- District weather -->
+  <ion-card *ngFor="let district of districtWeather">
+    <ion-card-header (click)="toggleForecast(district.name)" style="cursor:pointer;">
+      <ion-card-title>{{ district.name }}</ion-card-title>
+      <ion-card-subtitle>
+        {{ district.data.weather[0].description | titlecase }} - {{ today | date:'mediumDate' }}
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-icon [name]="getWeatherIcon(district.data.weather[0].main)" size="large"></ion-icon>
+      <h2>{{ district.data.main.temp | number:'1.0-1' }}°C</h2>
+    </ion-card-content>
+
+    <ion-list *ngIf="showForecast[district.name]">
+      <ion-item *ngFor="let day of forecastData[district.name]">
+        <ion-label>
+          {{ formatDate(day.dt_txt) }}: {{ day.weather[0].description | titlecase }}, {{ day.main.temp | number:'1.0-1' }}°C
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <!-- Region weather -->
+  <ion-card *ngFor="let region of regionWeather">
+    <ion-card-header (click)="toggleForecast(region.name)" style="cursor:pointer;">
+      <ion-card-title>{{ region.name }}</ion-card-title>
+      <ion-card-subtitle>
+        {{ region.data.weather[0].description | titlecase }} - {{ today | date:'mediumDate' }}
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-icon [name]="getWeatherIcon(region.data.weather[0].main)" size="large"></ion-icon>
+      <h2>{{ region.data.main.temp | number:'1.0-1' }}°C</h2>
+    </ion-card-content>
+
+    <ion-list *ngIf="showForecast[region.name]">
+      <ion-item *ngFor="let day of forecastData[region.name]">
+        <ion-label>
+          {{ formatDate(day.dt_txt) }}: {{ day.weather[0].description | titlecase }}, {{ day.main.temp | number:'1.0-1' }}°C
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <br><br><br><br>
+
+  <!-- Footer / Tab Bar -->
+  <ion-footer class="tab-bar">
+    <ion-toolbar>
+      <ion-buttons slot="start" class="footer-buttons">
+        <ion-button [routerLink]="['/admin-menu']">
+          <ion-icon name="home-outline"></ion-icon>
+          HOME
+        </ion-button>
+
+        <ion-button [routerLink]="['/about']">
+          <ion-icon name="people-outline"></ion-icon>
+          About Us
+        </ion-button>
+
+        <ion-button [routerLink]="['/admin-account']">
+          <ion-icon name="settings-outline"></ion-icon>
+          Settings
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>
+</ion-content>

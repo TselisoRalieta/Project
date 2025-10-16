@@ -1,0 +1,93 @@
+<ion-content class="contact-content">
+
+  <ion-grid>
+
+    <!-- LMPS -->
+    <ion-row>
+      <ion-col size="12" size-md="6">
+        <ion-card class="contact-card">
+          <div class="icon-container" (click)="makeCall('+266223456789')">
+            <ion-icon class="card-icon" name="call-outline"></ion-icon>
+          </div>
+          <h2 class="title">PHONE</h2>
+          <div class="contact-block">
+            <h3>Lesotho Mounted Police Service (LMPS)</h3>
+            <p (click)="makeCall('+266223456789')">(+266) 2234 56789</p>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <!-- Hospital -->
+    <ion-row>
+      <ion-col size="12" size-md="6">
+        <ion-card class="contact-card">
+          <div class="icon-container" (click)="makeCall('+266223455555')">
+            <ion-icon class="card-icon" name="call-outline"></ion-icon>
+          </div>
+          <h2 class="title">PHONE</h2>
+          <div class="contact-block">
+            <h3>Queen Mamohato Memorial Hospital</h3>
+            <p (click)="makeCall('+266223455555')">(+266) 2234 55555</p>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <!-- Travelers -->
+    <ion-row>
+      <ion-col size="12" size-md="6">
+        <ion-card class="contact-card">
+          <div class="icon-container" (click)="makeCall('+266223466666')">
+            <ion-icon class="card-icon" name="call-outline"></ion-icon>
+          </div>
+          <h2 class="title">PHONE</h2>
+          <div class="contact-block">
+            <h3>Travelers Assistance</h3>
+            <p (click)="makeCall('+266223466666')">(+266) 2234 66666</p>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <!-- DMA -->
+    <ion-row>
+      <ion-col size="12" size-md="6">
+        <ion-card class="contact-card">
+          <div class="icon-container" (click)="makeCall('+266223477777')">
+            <ion-icon class="card-icon" name="call-outline"></ion-icon>
+          </div>
+          <h2 class="title">PHONE</h2>
+          <div class="contact-block">
+            <h3>Disaster Management Authority (DMA)</h3>
+            <p (click)="makeCall('+266223477777')">(+266) 2234 77777</p>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+  <br><br><br>
+
+  <ion-footer class="tab-bar">
+    <ion-toolbar>
+      <ion-buttons slot="start" class="footer-buttons">
+        <ion-button [routerLink]="['/admin-menu']">
+          <ion-icon name="home-outline"></ion-icon>
+          HOME
+        </ion-button>
+
+        <ion-button [routerLink]="['/about']">
+          <ion-icon name="people-outline"></ion-icon>
+          About Us
+        </ion-button>
+
+        <ion-button [routerLink]="['/admin-account']">
+          <ion-icon name="settings-outline"></ion-icon>
+          Settings
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>
+
+</ion-content>

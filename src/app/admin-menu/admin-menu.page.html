@@ -16,8 +16,9 @@
       
       <ion-col size="auto" class="top-icons">
         <ion-buttons>
-          <ion-button [routerLink]="['/notifications']">
+          <ion-button [routerLink]="['/messages']">
             <ion-icon name="notifications-outline"></ion-icon>
+            <ion-badge *ngIf="notificationsCount > 0">{{ notificationsCount }}</ion-badge>
           </ion-button>
         </ion-buttons>
       </ion-col>
@@ -33,14 +34,14 @@
   <ion-grid>
     <ion-row>
       <ion-col size="6" size-md="6">
-        <ion-card button class="quick-card big-card" [routerLink]="['/manage-requests']">
+        <ion-card button class="quick-card big-card" [routerLink]="['/map']">
           <ion-icon name="refresh-outline" class="card-icon big-icon"></ion-icon>
-          <ion-label class="card-label">Accounts</ion-label>
+          <ion-label class="card-label">Map</ion-label>
         </ion-card>
       </ion-col>
 
       <ion-col size="6" size-md="6">
-  <ion-card button class="quick-card" [routerLink]="['/road-status']">
+  <ion-card button class="quick-card" [routerLink]="['/emergency']">
     <ion-icon name="car-outline" class="carupdated-icon" size="large" style="color: #3e3e3e;"></ion-icon>
     <ion-label>Road Status</ion-label>
   </ion-card>
@@ -59,21 +60,21 @@
 
 
       <ion-col size="6" size-md="6">
-  <ion-card button class="quick-card" [routerLink]="['/weather']">
+  <ion-card button class="quick-card" [routerLink]="['/weather-admin']">
     <ion-icon name="rainy-outline" size="large" style="color: #3e3e3e;"></ion-icon>
     <ion-label>Weather</ion-label>
   </ion-card>
 </ion-col>
 
       <ion-col size="6" size-md="6">
-        <ion-card button class="quick-card" [routerLink]="['/contact-center']">
+        <ion-card button class="quick-card" [routerLink]="['/call-center']">
           <ion-icon name="call-outline" class="card-icon big-icon"></ion-icon>
           <ion-label>Call For Help</ion-label>
         </ion-card>
       </ion-col>
   
       <ion-col size="12">
-        <ion-card button class="quick-card big-card wide-card" [routerLink]="['/tips-resources']">
+        <ion-card button class="quick-card big-card wide-card" [routerLink]="['/tips']">
           <ion-icon name="bulb-outline" class="card-icon big-icon"></ion-icon>
           <ion-label class="card-label">Tips & Resources</ion-label>
         </ion-card>
@@ -86,12 +87,12 @@
   <ion-footer class="tab-bar">
     <ion-toolbar>
       <ion-buttons slot="start" class="footer-buttons">
-        <ion-button>
+        <ion-button [routerLink]="['/admin-menu']">
           <ion-icon name="home-outline"></ion-icon>
           HOME
         </ion-button>
   
-        <ion-button [routerLink]="['/about-us']">
+        <ion-button [routerLink]="['/about']">
           <ion-icon name="people-outline"></ion-icon>
           About Us
         </ion-button>

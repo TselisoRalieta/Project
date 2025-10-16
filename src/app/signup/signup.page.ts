@@ -30,7 +30,7 @@ export class SignupPage {
       // 1️⃣ Authenticate user
       const cred = await this.afAuth.signInWithEmailAndPassword(this.email, this.password);
 
-      // 2️⃣ Retrieve role from Firebase Database
+      // 2️⃣ Retrieve user data from Firebase Database
       const db = getDatabase();
       const userRef = ref(db, 'users/' + cred.user?.uid);
       const snapshot = await get(userRef);
@@ -43,7 +43,16 @@ export class SignupPage {
       const userData = snapshot.val();
       const role = userData.role;
 
-      // 3️⃣ Redirect based on role
+      // 3️⃣ Extract only first name from username
+      let firstName = 'User';
+      if (userData.username) {
+        firstName = userData.username.split(' ')[0]; // Take first word only
+      }
+
+      // 4️⃣ Store firstName in localStorage
+      localStorage.setItem('firstName', firstName);
+
+      // 5️⃣ Redirect based on role
       if (role === 'admin') {
         this.router.navigate(['/admin-menu']);
       } else if (role === 'user') {
@@ -52,7 +61,7 @@ export class SignupPage {
         alert('Unknown role. Please contact support.');
       }
     } catch (error: any) {
-      if (error.code === 'auth/invalid-credential' || error.code === 'auth/wrong-password') {
+      if (error.code === 'auth/wrong-password') {
         alert('Invalid email or password.');
       } else if (error.code === 'auth/user-not-found') {
         alert('No account found for this email.');

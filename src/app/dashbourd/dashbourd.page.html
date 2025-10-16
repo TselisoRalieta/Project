@@ -1,5 +1,5 @@
 <ion-content class="home-content">
- <ion-grid class="top-header">
+  <ion-grid class="top-header">
     <ion-row class="ion-align-items-center ion-justify-content-between">
       <ion-col size="auto" class="profile-pic">
         <ion-avatar>
@@ -22,12 +22,12 @@
     </ion-row>
   </ion-grid>
 
-  <br>
+  <br />
   <div class="welcome-subtext">
     <p>Check real-time alerts for safe travel</p>
   </div>
 
-  <br><br>
+  <br /><br />
   <ion-grid>
     <ion-row>
       <ion-col size="6" size-md="6">
@@ -44,23 +44,20 @@
       </ion-col>
 
       <ion-col size="12" size-md="6">
-  <ion-card button class="quick-card" [routerLink]="['/road-status']">
-    <ion-icon name="car-outline" class="carupdated-icon" size="large" style="color: #3e3e3e;"></ion-icon>
-    <ion-label>Road Status</ion-label>
-  </ion-card>
-</ion-col>
-
+        <ion-card button class="quick-card" [routerLink]="['/road-status']">
+          <ion-icon name="car-outline" class="carupdated-icon" size="large" style="color: #3e3e3e;"></ion-icon>
+          <ion-label>Road Status</ion-label>
+        </ion-card>
+      </ion-col>
     </ion-row>
 
     <ion-row>
-
-     <ion-col size="6" size-md="6">
-  <ion-card button class="quick-card" [routerLink]="['/weather']">
-    <ion-icon name="rainy-outline" size="large" style="color: #3e3e3e;"></ion-icon>
-    <ion-label>Weather</ion-label>
-  </ion-card>
-</ion-col>
-
+      <ion-col size="6" size-md="6">
+        <ion-card button class="quick-card" [routerLink]="['/weather']">
+          <ion-icon name="rainy-outline" size="large" style="color: #3e3e3e;"></ion-icon>
+          <ion-label>Weather</ion-label>
+        </ion-card>
+      </ion-col>
 
       <ion-col size="6" size-md="6">
         <ion-card button class="quick-card" [routerLink]="['/contact-center']">
@@ -100,5 +97,6 @@
       </ion-buttons>
     </ion-toolbar>
   </ion-footer>
-  <br><br><br>
+
+  <br /><br /><br />
 </ion-content>

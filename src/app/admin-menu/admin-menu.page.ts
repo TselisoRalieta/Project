@@ -1,37 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-// import { getAuth, onAuthStateChanged, User } from 'firebase/auth';
-// import { getDatabase, ref as dbRef, get } from 'firebase/database';
+import { Router } from '@angular/router';
+import { NotificationService } from './../services/notification'; // adjust path
 
 @Component({
   selector: 'app-admin-menu',
   templateUrl: './admin-menu.page.html',
   styleUrls: ['./admin-menu.page.scss'],
-  standalone: false,
 })
 export class AdminMenuPage implements OnInit {
-  firstName: string = 'Admin'; 
+  firstName: string = 'Admin'; // default fallback
+  notificationsCount: number = 0;
 
-  constructor() {}
+  constructor(
+    private router: Router,
+    private notifService: NotificationService
+  ) {}
 
   ngOnInit() {
-    // const auth = getAuth(); // 🔹 Initialize Firebase authentication
-    // const db = getDatabase(); // 🔹 Get a reference to the Firebase Realtime Database
+    // Read firstName from localStorage
+    const storedName = localStorage.getItem('firstName');
+    if (storedName) {
+      this.firstName = storedName;
+    }
 
-    // onAuthStateChanged(auth, async (user) => {
-    //   if (user) {
-    //     // 🔹 Create a database reference to the current user
-    //     const userRef = dbRef(db, 'users/' + user.uid);
-    //     try {
-    //       // 🔹 Retrieve the user's data from the database
-    //       const snapshot = await get(userRef);
-    //       if (snapshot.exists()) {
-    //         const data = snapshot.val(); // 🔹 Extract user data
-    //         this.firstName = data.name || 'Admin'; // 🔹 Set first name from database or fallback
-    //       }
-    //     } catch (error) {
-    //       console.error('Failed to fetch user data:', error); // 🔹 Log any database retrieval errors
-    //     }
-    //   }
-    // });
+    // Subscribe to unread notifications count
+    this.notifService.unreadCount$.subscribe((count: number) => {
+      this.notificationsCount = count;
+    });
+  }
+
+  goToNotifications() {
+    this.router.navigate(['/notifications']);
   }
 }
