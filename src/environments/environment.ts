@@ -1,6 +1,6 @@
 export const firebaseConfig = {
   apiKey: "",
-  authDomain: "",
+  authDomain: "travel-aaeab.firebaseapp.com",
   databaseURL: "https://travel-aaeab-default-rtdb.firebaseio.com",
   projectId: "travel-aaeab",
   storageBucket: "travel-aaeab.appspot.com", // ⚠️ must be .appspot.com
