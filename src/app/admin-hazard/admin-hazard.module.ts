@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { EmergencyPageRoutingModule } from './emergency-routing.module';
+import { AdminHazardPageRoutingModule } from './admin-hazard-routing.module';
 
-import { EmergencyPage } from './emergency.page';
+import { AdminHazardPage } from './admin-hazard.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EmergencyPageRoutingModule
+    AdminHazardPageRoutingModule
   ],
-  declarations: [EmergencyPage]
+  declarations: [AdminHazardPage]
 })
-export class EmergencyPageModule {}
+export class AdminHazardPageModule {}

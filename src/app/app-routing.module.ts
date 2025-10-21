@@ -82,7 +82,8 @@ const routes: Routes = [
   {
     path: 'blog',
     loadChildren: () => import('./blog/blog.module').then( m => m.BlogPageModule)
-  },  {
+  },
+  {
     path: 'weather-admin',
     loadChildren: () => import('./weather-admin/weather-admin.module').then( m => m.WeatherAdminPageModule)
   },
@@ -99,20 +100,16 @@ const routes: Routes = [
     loadChildren: () => import('./about/about.module').then( m => m.AboutPageModule)
   },
   {
-    path: 'emergency',
-    loadChildren: () => import('./emergency/emergency.module').then( m => m.EmergencyPageModule)
-  },
-  {
-    path: 'awareness',
-    loadChildren: () => import('./awareness/awareness.module').then( m => m.AwarenessPageModule)
-  },
-  {
     path: 'map',
     loadChildren: () => import('./map/map.module').then( m => m.MapPageModule)
   },
   {
     path: 'messages',
     loadChildren: () => import('./messages/messages.module').then( m => m.MessagesPageModule)
+  },
+  {
+    path: 'admin-hazard',
+    loadChildren: () => import('./admin-hazard/admin-hazard.module').then( m => m.AdminHazardPageModule)
   },
 
 

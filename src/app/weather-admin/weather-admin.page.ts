@@ -72,7 +72,7 @@ export class WeatherAdminPage  implements OnInit {
             temps.push(data.main.temp);
             descriptions.push(data.weather[0].main);
 
-            // Check notifications per district
+            // Checks notifications per district
             this.checkDangerousWeather(districts[index], data);
           });
 
@@ -143,7 +143,7 @@ export class WeatherAdminPage  implements OnInit {
     }
   }
 
-  // Format date
+  //Date format
   formatDate(dtTxt: string): string {
     const date = new Date(dtTxt);
     return date.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' });

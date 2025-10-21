@@ -30,7 +30,7 @@ export class UpdatesPage implements OnInit {
         changes.map(c => ({ key: c.payload.key, ...c.payload.val() as Blog }))
       )
     ).subscribe(data => {
-      this.newsList = data.reverse(); // newest first
+      this.newsList = data.reverse(); 
     });
   }
 

@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar style="--background: #ffffff;">
+    <ion-title>Admin Hazard Management</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="--background: #ffffff; color: #3e3e3e;">
+
+  <!-- Loading spinner -->
+  <ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
+
+  <!-- Hazards list -->
+  <ion-grid *ngIf="!loading && filteredHazards.length > 0">
+    <ion-row>
+      <ion-col size="12" size-md="6" size-lg="4" *ngFor="let hazard of filteredHazards">
+        <ion-card style="background-color: #ccc; color: #3e3e3e;">
+          <ion-card-header>
+            <ion-card-title style="color: #3e3e3e;">
+              {{ hazard.type | titlecase }} ({{ hazard.severity }})
+            </ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content style="color: #3e3e3e;">
+            <p>{{ hazard.description }}</p>
+            <p><b>Source:</b> {{ hazard.source }}</p>
+            <p><b>Location:</b> {{ hazard.location.district }}, {{ hazard.location.village }}</p>
+            <p><b>Time:</b> {{ hazard.timestamp | date:'short' }}</p>
+
+            <!-- Status Selector -->
+            <ion-item lines="none" style="display: flex; align-items: center; justify-content: space-between; --background: #ccc;">
+              <ion-label style="color: #3e3e3e;">Status</ion-label>
+              <ion-select [(ngModel)]="hazard.status" (ionChange)="updateStatus(hazard)" interface="popover">
+                <ion-select-option value="Pending">Pending</ion-select-option>
+                <ion-select-option value="Verified">Verified</ion-select-option>
+                <ion-select-option value="Resolved">Resolved</ion-select-option>
+              </ion-select>
+            </ion-item>
+
+            <!-- Status Badge -->
+            <ion-item lines="none" style="--background: #ccc; display: flex; align-items: center; justify-content: flex-start; margin-top: 5px;">
+              <ion-label style="color: #3e3e3e; margin-right: 10px; font-weight: bold;">Current Status:</ion-label>
+              <ion-badge
+                [color]="hazard.status === 'Resolved' ? 'success' : hazard.status === 'Verified' ? 'warning' : 'medium'">
+                {{ hazard.status }}
+              </ion-badge>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Empty state -->
+  <ion-item *ngIf="!loading && filteredHazards.length === 0">
+    <ion-label>No hazards reported</ion-label>
+  </ion-item>
+
+  <br><br><br><br>
+
+  <!-- Footer -->
+  <ion-footer class="tab-bar">
+    <ion-toolbar>
+      <ion-buttons slot="start" class="footer-buttons">
+        <ion-button [routerLink]="['/admin-menu']">
+          <ion-icon name="home-outline"></ion-icon>
+          HOME
+        </ion-button>
+
+        <ion-button [routerLink]="['/about']">
+          <ion-icon name="people-outline"></ion-icon>
+          About Us
+        </ion-button>
+
+        <ion-button [routerLink]="['/admin-account']">
+          <ion-icon name="settings-outline"></ion-icon>
+          Settings
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>
+</ion-content>

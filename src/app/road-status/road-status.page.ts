@@ -3,11 +3,13 @@ import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { map } from 'rxjs/operators';
 
 interface Hazard {
+  key?: string | null;
   type: string;
   severity: string;
   description: string;
   source: string;
   timestamp: string;
+  status: string;
   location: { district: string; village: string };
 }
 
@@ -24,11 +26,24 @@ export class RoadStatusPage implements OnInit {
   constructor(private db: AngularFireDatabase) {}
 
   ngOnInit() {
-    this.db.list<Hazard>('hazards').snapshotChanges().pipe(
-      map(changes => changes.map(c => ({ key: c.payload.key, ...c.payload.val() as Hazard })))
-    ).subscribe(data => {
-      this.hazards = data.reverse();
-      this.loading = false;
-    });
+    this.db
+      .list<Hazard>('hazards')
+      .snapshotChanges()
+      .pipe(
+        map((changes) =>
+          changes.map((c) => {
+            const data = c.payload.val() as Hazard;
+            return {
+              key: c.payload.key,
+              ...data,
+              status: data.status || 'Pending', // Default to Pending
+            };
+          })
+        )
+      )
+      .subscribe((data) => {
+        this.hazards = data.reverse(); // newest first
+        this.loading = false;
+      });
   }
 }

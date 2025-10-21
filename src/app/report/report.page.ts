@@ -7,6 +7,7 @@ interface Hazard {
   location: { district: string; village: string };
   severity: string;
   source: string;
+  status: string;
   timestamp?: string;
 }
 
@@ -14,7 +15,6 @@ interface Hazard {
   selector: 'app-report',
   templateUrl: './report.page.html',
   styleUrls: ['./report.page.scss'],
-  standalone: false,
 })
 export class ReportPage {
   hazard: Hazard = {
@@ -23,39 +23,60 @@ export class ReportPage {
     location: { district: '', village: '' },
     severity: 'low',
     source: 'crowd',
+    status: 'Pending',
   };
+
+  districts: string[] = [
+    'Maseru',
+    'Mafeteng',
+    'Berea',
+    'Mokhotlong',
+    'Quthing',
+    'Semonkong',
+    'Qacha\'s Nek',
+    'Leribe',
+    'Butha-Buthe',
+    'Mohale\'s Hoek',
+    'Thaba-Tseka',
+    'Semonkong' // Added Semonkong
+  ];
 
   constructor(private db: AngularFireDatabase) {}
 
   submitReport() {
-    if (!this.hazard.type || !this.hazard.description?.trim() || 
-        !this.hazard.location.district?.trim() || !this.hazard.location.village?.trim()) {
+    if (
+      !this.hazard.type ||
+      !this.hazard.description?.trim() ||
+      !this.hazard.location.district?.trim() ||
+      !this.hazard.location.village?.trim()
+    ) {
       alert('Please fill in all fields.');
       return;
     }
 
     this.hazard.timestamp = new Date().toISOString();
 
-    // Push hazard to Firebase
-    this.db.list('hazards').push(this.hazard)
+    this.db.list('hazards')
+      .push(this.hazard)
       .then(() => {
-        // Automatically push a notification
         this.db.list('notifications').push({
           title: `New Hazard: ${this.hazard.type}`,
           description: this.hazard.description,
-          timestamp: this.hazard.timestamp
+          timestamp: this.hazard.timestamp,
         });
 
         alert('Hazard submitted successfully!');
-        // Reset form
+
+        // Reset the form
         this.hazard = {
           type: 'other',
           description: '',
           location: { district: '', village: '' },
           severity: 'low',
           source: 'crowd',
+          status: 'Pending',
         };
       })
-      .catch(err => alert('Error: ' + err));
+      .catch((err) => alert('Error: ' + err));
   }
 }
