@@ -1,5 +1,5 @@
 export const firebaseConfig = {
-  apiKey: "",
+  apiKey: "AIzaSyAaVAlenm8i8juMziE0lv7HpnqL5Wa-Ys0",
   authDomain: "travel-aaeab.firebaseapp.com",
   databaseURL: "https://travel-aaeab-default-rtdb.firebaseio.com",
   projectId: "travel-aaeab",
