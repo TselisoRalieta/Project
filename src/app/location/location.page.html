@@ -4,7 +4,7 @@
 
   <!-- Display selected addresses -->
   <ion-grid class="info-grid">
-    <ion-row>
+    <ion-row style="display: none;">
       <ion-col size="12">
         <ion-item
           style="--background: #ffffff; --color: #3e3e3e; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 10px;"
@@ -17,7 +17,7 @@
       </ion-col>
     </ion-row>
 
-    <ion-row>
+    <ion-row style="display: none;">
       <ion-col size="12">
         <ion-item
           style="--background: #ffffff; --color: #3e3e3e; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 10px;"
@@ -29,19 +29,44 @@
         </ion-item>
       </ion-col>
     </ion-row>
+
+    <!-- Hazards Info -->
+    <ion-row *ngIf="hazards.length > 0">
+      <ion-col size="12">
+        <ion-item
+          style="--background: #fff3cd; --color: #856404; border: 1px solid #ffeaa7; border-radius: 8px; margin-bottom: 10px;"
+        >
+          <ion-icon name="warning-outline" slot="start" style="color: #856404;"></ion-icon>
+          <ion-label style="color: #856404;">
+            Active Hazards: {{ hazards.length }} hazard(s) displayed on map
+          </ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
   </ion-grid>
 
-  <!-- Route Legend -->
-  <div style="text-align: center; margin-top: 10px;">
-    <span style="color: #007bff; font-weight: bold;">● Main Route</span> |
-    <span style="color: #28a745;">● Alternative Route</span> |
-    <span style="color: #ff6b35;">● Waypoint Route</span>
+  <!-- Enhanced Route Legend -->
+  <!-- Enhanced Route Legend -->
+<div style="text-align: center; margin-top: 10px; padding: 0 10px;">
+  <div style="display: inline-block; text-align: left; background: rgba(255,255,255,0.9); padding: 8px 12px; border-radius: 8px; border: 1px solid #ddd;">
+    <div style="margin-bottom: 5px;">
+      <strong>Routes:</strong> 
+      <span style="color: #007bff;">● Main</span> | 
+      <span style="color: #28a745; display: none;" >● Alternative</span> | 
+      <span style="color: #ff6b35;">● Alternative</span>
+    </div>
+    <div>
+      <strong>Hazards:</strong> 
+      <span style="color: #ffa500;">● Pending</span> | 
+      <span style="color: #ff0000;">● Verified</span>
+    </div>
   </div>
+</div>
 
-  <!-- Routes Found Counter -->
-  <div style="text-align: center; margin-top: 5px; font-size: 12px; color: #666;">
-    Routes found: {{ routesFound || 0 }}
-  </div>
+<!-- Routes Found Counter -->
+<div style="text-align: center; margin-top: 5px; font-size: 12px; color: #666;">
+  Routes found: {{ routesFound || 0 }} | Hazards displayed: {{ hazards.length }}
+</div>
 
   <!-- Action Buttons -->
   <div style="display: flex; justify-content: center; margin-top: 20px; gap: 10px; flex-wrap: wrap;">
@@ -53,13 +78,13 @@
     </ion-button>
     
     <ion-button
-  style="--background: #007bff; --color: #ffffff; --border-radius: 20px; height: 40px; width: 45%; font-size: 14px;"
-  (click)="downloadMap()"
-  [disabled]="routesFound === 0"
->
-  <ion-icon name="download-outline" slot="start"></ion-icon>
-  Download Map
-</ion-button>
+      style="--background: #007bff; --color: #ffffff; --border-radius: 20px; height: 40px; width: 45%; font-size: 14px;"
+      (click)="downloadMap()"
+      [disabled]="routesFound === 0 && hazards.length === 0"
+    >
+      <ion-icon name="download-outline" slot="start"></ion-icon>
+      Download Map
+    </ion-button>
 
     <ion-button
       style="--background: #6c757d; --color: #ffffff; --border-radius: 20px; height: 40px; width: 45%; font-size: 14px;"

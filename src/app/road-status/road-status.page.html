@@ -16,6 +16,17 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
+  <!-- View on Map Button -->
+  <ion-item lines="none" style="--background: transparent;">
+    <ion-button 
+      expand="block" 
+      style="--background: #007bff; --color: #ffffff; margin: 16px;"
+      (click)="navigateToMap()">
+      <ion-icon name="map-outline" slot="start"></ion-icon>
+      View Hazards on Map
+    </ion-button>
+  </ion-item>
+
   <!-- Hazards list -->
   <ion-grid *ngIf="!loading && hazards.length > 0" class="hazard-grid">
     <ion-row>
@@ -32,17 +43,41 @@
             <p><b>Time:</b> {{ hazard.timestamp | date:'short' }}</p>
             <p><b>Location:</b> {{ hazard.location.district }}, {{ hazard.location.village }}</p>
             
-            
-            <ion-item lines="none" style="display: flex; align-items: center; justify-content: space-between; --background: #f2f2f2; font-weight: bold;">
-            
-  <ion-label style="color: #3e3e3e; align-items: center">Status</ion-label>
-  <ion-badge
-    [color]="hazard.status === 'Resolved' ? 'success' : hazard.status === 'Verified' ? 'warning' : 'medium'">
-    {{ hazard.status }}
-  </ion-badge>
-  
-</ion-item>
+            <!-- AI PREDICTION SECTION -->
+            <ion-item lines="none" style="--background: #e8f4ff; border-radius: 8px; margin: 10px 0; padding: 10px;">
+              <ion-icon name="time-outline" slot="start" style="color: #007bff; font-size: 24px;"></ion-icon>
+              <ion-label style="white-space: normal;">
+                <h3 style="color: #007bff; font-weight: bold; margin: 0 0 8px 0; font-size: 14px;">
+                  CLEARANCE PREDICTION
+                </h3>
+                <p style="margin: 4px 0; font-size: 13px; font-weight: 500;">
+                  <strong>Estimated Clearance:</strong> {{ hazard.predictedClearanceTime || 'Calculating...' }}
+                </p>
+                <p style="margin: 4px 0; font-size: 12px; color: #666;">
+                  <strong>Confidence:</strong> 
+                  <ion-badge color="primary" style="margin-left: 5px; font-size: 11px;">
+                    {{ getPredictionConfidence(hazard) }}%
+                  </ion-badge>
+                </p>
+                <p *ngIf="hazard.factorsUsed && hazard.factorsUsed.length > 0" 
+                   style="margin: 4px 0; font-size: 11px; color: #888; line-height: 1.3;">
+                  <strong>Factors:</strong> {{ hazard.factorsUsed.join(', ') }}
+                </p>
+                <p *ngIf="hazard.estimatedClearanceTimestamp" 
+                   style="margin: 4px 0; font-size: 11px; color: #007bff; font-weight: 500;">
+                  <ion-icon name="calendar-outline" style="vertical-align: middle;"></ion-icon>
+                  Expected by: {{ hazard.estimatedClearanceTimestamp | date:'short' }}
+                </p>
+              </ion-label>
+            </ion-item>
 
+            <ion-item lines="none" style="display: flex; align-items: center; justify-content: space-between; --background: #f2f2f2; font-weight: bold; border-radius: 8px;">
+              <ion-label style="color: #3e3e3e; align-items: center">Status</ion-label>
+              <ion-badge
+                [color]="hazard.status === 'Resolved' ? 'success' : hazard.status === 'Verified' ? 'warning' : 'medium'">
+                {{ hazard.status }}
+              </ion-badge>
+            </ion-item>
           </ion-card-content>
         </ion-card>
       </ion-col>
